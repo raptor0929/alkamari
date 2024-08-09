@@ -1,5 +1,6 @@
 import { NextUIProvider } from "@nextui-org/react";
 import "@rainbow-me/rainbowkit/styles.css";
+import LayoutComponent from "~~/components/Layout";
 import { ScaffoldEthAppWithProviders } from "~~/components/ScaffoldEthAppWithProviders";
 import { ThemeProvider } from "~~/components/ThemeProvider";
 import "~~/styles/globals.css";
@@ -16,7 +17,9 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
       <body>
         <NextUIProvider>
           <ThemeProvider enableSystem>
-            <ScaffoldEthAppWithProviders>{children}</ScaffoldEthAppWithProviders>
+            <ScaffoldEthAppWithProviders>
+              <LayoutComponent>{children}</LayoutComponent>
+            </ScaffoldEthAppWithProviders>
           </ThemeProvider>
         </NextUIProvider>
       </body>
