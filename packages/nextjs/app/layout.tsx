@@ -1,14 +1,26 @@
-import { NextUIProvider } from "@nextui-org/react";
-import "@rainbow-me/rainbowkit/styles.css";
-import LayoutComponent from "~~/components/Layout";
-import { ScaffoldEthAppWithProviders } from "~~/components/ScaffoldEthAppWithProviders";
-import { ThemeProvider } from "~~/components/ThemeProvider";
-import "~~/styles/globals.css";
-import { getMetadata } from "~~/utils/scaffold-eth/getMetadata";
+"use client";
 
-export const metadata = getMetadata({
-  title: "Cripto Wallet",
-  description: "Cripto Wallet to Bolivia",
+import { BiconomyProvider } from "../context/BiconomyContext";
+import { NextUIProvider } from "@nextui-org/react";
+// import { getMetadata } from "~~/utils/scaffold-eth/getMetadata";
+import { PrivyProvider } from "@privy-io/react-auth";
+import "@rainbow-me/rainbowkit/styles.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { arbitrumSepolia } from "viem/chains";
+import { WagmiProvider } from "wagmi";
+import LayoutComponent from "~~/components/Layout";
+// import { ScaffoldEthAppWithProviders } from "~~/components/ScaffoldEthAppWithProviders";
+import { ThemeProvider } from "~~/components/ThemeProvider";
+import { ProgressBar } from "~~/components/scaffold-eth/ProgressBar";
+import { wagmiConfig } from "~~/services/web3/wagmiConfig";
+import "~~/styles/globals.css";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
 });
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
@@ -17,9 +29,29 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
       <body>
         <NextUIProvider>
           <ThemeProvider enableSystem>
-            <ScaffoldEthAppWithProviders>
-              <LayoutComponent>{children}</LayoutComponent>
-            </ScaffoldEthAppWithProviders>
+            <PrivyProvider
+              appId={process.env.NEXT_PUBLIC_PRIVY_ID || ""}
+              config={{
+                supportedChains: [arbitrumSepolia],
+                embeddedWallets: {
+                  createOnLogin: "users-without-wallets",
+                  noPromptOnSignature: true,
+                },
+                loginMethods: ["email", "google", "twitter", "discord", "apple"],
+              }}
+            >
+              <BiconomyProvider>
+                {/* <ScaffoldEthAppWithProviders> */}
+                <WagmiProvider config={wagmiConfig}>
+                  <QueryClientProvider client={queryClient}>
+                    <ProgressBar />
+                    <LayoutComponent>{children}</LayoutComponent>
+                  </QueryClientProvider>
+                </WagmiProvider>
+
+                {/* </ScaffoldEthAppWithProviders> */}
+              </BiconomyProvider>
+            </PrivyProvider>
           </ThemeProvider>
         </NextUIProvider>
       </body>
