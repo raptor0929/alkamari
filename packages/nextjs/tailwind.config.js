@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const {nextui} = require("@nextui-org/react");
+const { nextui } = require("@nextui-org/react");
 
 module.exports = {
   content: [
@@ -10,8 +10,7 @@ module.exports = {
   ],
   plugins: [nextui(), require("daisyui")],
   darkTheme: "dark",
-  darkMode: ["selector", "[data-theme='dark']"],
-  // DaisyUI theme colors
+  darkMode: ["class", "[data-theme='dark']"],
   daisyui: {
     themes: [
       {
@@ -27,23 +26,12 @@ module.exports = {
           "base-100": "#ffffff",
           "base-200": "#f4f8ff",
           "base-300": "#DAE8FF",
+          "base-400": "#FF7F50",
           "base-content": "#212638",
           info: "#93BBFB",
           success: "#34EEB6",
           warning: "#FFCF72",
           error: "#FF8863",
-
-          "--rounded-btn": "9999rem",
-
-          ".tooltip": {
-            "--tooltip-tail": "6px",
-          },
-          ".link": {
-            textUnderlineOffset: "2px",
-          },
-          ".link:hover": {
-            opacity: "80%",
-          },
         },
       },
       {
@@ -59,35 +47,29 @@ module.exports = {
           "base-100": "#385183",
           "base-200": "#2A3655",
           "base-300": "#212638",
+          "base-400": "#FF7F50",
           "base-content": "#F9FBFF",
           info: "#385183",
           success: "#34EEB6",
           warning: "#FFCF72",
           error: "#FF8863",
-
-          "--rounded-btn": "9999rem",
-
-          ".tooltip": {
-            "--tooltip-tail": "6px",
-            "--tooltip-color": "oklch(var(--p))",
-          },
-          ".link": {
-            textUnderlineOffset: "2px",
-          },
-          ".link:hover": {
-            opacity: "80%",
-          },
         },
       },
     ],
   },
   theme: {
     extend: {
-      boxShadow: {
-        center: "0 0 12px -2px rgb(0 0 0 / 0.05)",
-      },
-      animation: {
-        "pulse-fast": "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      colors: {
+        "card-bg": "#d4eaf7", // Fondo claro de tarjetas o secciones
+        "sidebar-bg": "#b6ccd8", // Fondo de la barra lateral
+        "header-text": "#3b3c3d", // Texto en el encabezado o elementos destacados
+        "button-bg": "#71c4ef", // Fondo de los botones principales
+        "button-hover": "#00668c", // Color de fondo de los botones al pasar el ratón (hover)
+        "main-text": "#1d1c1c", // Color principal del texto
+        "secondary-text": "#313d44", // Texto secundario
+        "app-background": "#f5f4f1", // Fondo principal de la aplicación
+        "section-bg": "#fffefb", // Fondo de secciones o contenedores
+        "border-color": "#cccbc8", // Bordes o fondos sutiles
       },
     },
   },

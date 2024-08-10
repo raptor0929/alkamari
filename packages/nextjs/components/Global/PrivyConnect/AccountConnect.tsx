@@ -14,7 +14,7 @@ import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
  *  - Disconnects from the wallet
  *  - Displays the wallet network
  */
-function AccountConnect() {
+const AccountConnect = () => {
   const { targetNetwork } = useTargetNetwork();
   const chainId = targetNetwork.id;
   const { ready, authenticated, login, logout } = usePrivy();
@@ -39,14 +39,7 @@ function AccountConnect() {
       {(() => {
         if (!authenticated) {
           return (
-            <Button
-              color="primary"
-              size="lg"
-              radius="full"
-              variant="bordered"
-              className="font-urbanist text-black"
-              onClick={handleStart}
-            >
+            <Button className="font-urbanist text-black bg-border-color" onClick={handleStart}>
               Launch
             </Button>
           );
@@ -73,6 +66,6 @@ function AccountConnect() {
       })()}
     </div>
   );
-}
+};
 
 export default AccountConnect;

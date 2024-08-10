@@ -8,9 +8,9 @@ interface IMarketPlaceProps {
 }
 
 const MarketPlace = ({ type }: IMarketPlaceProps) => {
+  console.log(type);
   return (
     <div>
-      <h1>{type === "buy" ? "Buy Items" : "Sell Items"}</h1>
       <HeaderTable />
       <MarketPlaceTable />
       <PaginationTable />

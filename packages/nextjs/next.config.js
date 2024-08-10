@@ -14,6 +14,15 @@ const nextConfig = {
     config.externals.push("pino-pretty", "lokijs", "encoding");
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/marketplace?type=buy',
+        permanent: true,
+      },
+    ]
+  },
 };
 
 module.exports = nextConfig;
