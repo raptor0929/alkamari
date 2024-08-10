@@ -9,11 +9,14 @@ interface ILayoutProps {
 
 const LayoutComponent = ({ children }: ILayoutProps) => {
   return (
-    <div className="bg-app-background min-h-screen flex flex-col p-5">
-      <div className="bg-section-bg h-full">
+    <div className="bg-app-background min-h-screen flex flex-col p-5 h-screen">
+      <div className="bg-section-bg h-14">
         <AppNavbar />
-        <Divider />
-        <main>{children}</main>
+      </div>
+      <Divider />
+      <main className="h-full bg-section-bg">{children}</main>
+      <Divider />
+      <div className="h-14 bg-section-bg">
         <FooterComponent />
       </div>
     </div>

@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SidebarComponent from "../Layout/SidebarComponent";
 // import { SwitchTheme } from "../SwitchTheme";
 import AccountConnect from "./PrivyConnect/AccountConnect";
 import { Button } from "@nextui-org/react";
+import { useTheme } from "next-themes";
 import { FaBell, FaCog, FaGlobe, FaUser } from "react-icons/fa";
 
 const AppNavbar = () => {
+  const { setTheme } = useTheme();
+  //TODO: Fix this, it is necessary to configure default value
+  useEffect(() => {
+    setTheme("light");
+  }, [setTheme]);
+
   return (
     <header className="px-4 py-2 flex justify-between items-center">
       <SidebarComponent />

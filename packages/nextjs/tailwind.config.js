@@ -59,6 +59,10 @@ module.exports = {
   },
   theme: {
     extend: {
+      fontFamily: {
+        caveat: ['Caveat', 'cursive'],
+        urbanist: ['Urbanist', 'sans-serif'],
+      },
       colors: {
         "card-bg": "#d4eaf7", // Fondo claro de tarjetas o secciones
         "sidebar-bg": "#b6ccd8", // Fondo de la barra lateral

@@ -1,7 +1,5 @@
 import React from "react";
-import HeaderTable from "./Header";
-import PaginationTable from "./Pagination";
-import MarketPlaceTable from "./Table";
+import MarketPlaceTable from "./MarketPlaceTable";
 
 interface IMarketPlaceProps {
   type: "buy" | "sell";
@@ -10,10 +8,8 @@ interface IMarketPlaceProps {
 const MarketPlace = ({ type }: IMarketPlaceProps) => {
   console.log(type);
   return (
-    <div>
-      <HeaderTable />
+    <div className="h-full">
       <MarketPlaceTable />
-      <PaginationTable />
     </div>
   );
 };
