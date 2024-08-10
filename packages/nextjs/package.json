@@ -38,6 +38,7 @@
     "react-hot-toast": "~2.4.0",
     "stream-chat": "^8.37.0",
     "stream-chat-react": "^11.23.5",
+    "react-icons": "^5.2.1",
     "use-debounce": "~8.0.4",
     "usehooks-ts": "2.13.0",
     "viem": "2.17.4",
