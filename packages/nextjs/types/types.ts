@@ -1,22 +1,25 @@
-export interface IAnnouncement {
+export type Announcement = {
   id: string;
-  userId: string;
+  walletAddress: string;
   type: OrderType;
-  fromCurrency: Currency;
-  toCurrency: Currency;
-  amount: number;
+  cryptoCurrency: CryptoCurrency;
+  fiatCurrency: FiatCurrency;
+  cryptoAmount: number;
+  fiatUnitPice: number;
   creationDate: Date;
   active: boolean;
-}
+};
 
 export enum OrderType {
-  Buy,
-  Sell,
+  Buy = "Buy",
+  Sell = "Sell",
 }
 
-export enum Currency {
-  USDT = 0,
-  BOB = 1,
+export enum CryptoCurrency {
+  USDT = "USDT",
+}
+export enum FiatCurrency {
+  BOB = "BOB",
 }
 
 export enum OrderStatus {
