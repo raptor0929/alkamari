@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useSearchParams } from "next/navigation";
-import MarketPlace from "~~/components/MarketPlace";
+import MarketPlace from "./components/MarketPlace";
 
 const MarketPlacePage = () => {
   const searchParams = useSearchParams();

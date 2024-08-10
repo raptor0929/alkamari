@@ -3,8 +3,7 @@ import AccountConnect from "./header/AccountConnect";
 
 const HeaderComponent = () => {
   return (
-    <div>
-      <div>HeaderComponent</div>
+    <div className="bg-red-50">
       <div>
         <AccountConnect />
       </div>
