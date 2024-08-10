@@ -12,6 +12,7 @@ import LayoutComponent from "~~/components/Layout";
 // import { ScaffoldEthAppWithProviders } from "~~/components/ScaffoldEthAppWithProviders";
 import { ThemeProvider } from "~~/components/ThemeProvider";
 import { ProgressBar } from "~~/components/scaffold-eth/ProgressBar";
+import ChatContext from "~~/context/ChatContext";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
 import "~~/styles/globals.css";
 
@@ -43,10 +44,12 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
               <BiconomyProvider>
                 {/* <ScaffoldEthAppWithProviders> */}
                 <WagmiProvider config={wagmiConfig}>
-                  <QueryClientProvider client={queryClient}>
-                    <ProgressBar />
-                    <LayoutComponent>{children}</LayoutComponent>
-                  </QueryClientProvider>
+                  <ChatContext>
+                    <QueryClientProvider client={queryClient}>
+                      <ProgressBar />
+                      <LayoutComponent>{children}</LayoutComponent>
+                    </QueryClientProvider>
+                  </ChatContext>
                 </WagmiProvider>
 
                 {/* </ScaffoldEthAppWithProviders> */}
