@@ -5,7 +5,7 @@ import { Announcement } from "~~/types/types";
 const AdDetails = (data: Announcement) => {
   return (
     <TableRow key={data.id} onClick={() => console.log(data.id)}>
-      <TableCell>{data.creationDate.toString()}</TableCell>
+      <TableCell>{data.creationDate?.toString()}</TableCell>
       <TableCell>{data.type}</TableCell>
       <TableCell>{data.cryptoCurrency}</TableCell>
       <TableCell>{data.fiatCurrency}</TableCell>

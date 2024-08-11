@@ -2,12 +2,12 @@ export type Announcement = {
   id: string;
   walletAddress: string;
   type: OrderType;
-  cryptoCurrency: CryptoCurrency;
-  fiatCurrency: FiatCurrency;
-  cryptoAmount: number;
+  cryptoCurrency?: CryptoCurrency;
+  fiatCurrency?: FiatCurrency;
+  cryptoAmount?: number;
   fiatUnitPice: number;
-  creationDate: Date;
-  active: boolean;
+  creationDate?: Date;
+  active?: boolean;
 };
 
 export enum OrderType {
@@ -23,17 +23,20 @@ export enum FiatCurrency {
 }
 
 export enum OrderStatus {
-  Initialized,
-  InProgress,
-  Completed,
-  Rejected,
+  Initialized = "Initialized",
+  InProgress = "InProgress",
+  Confirmation = "Confirmation",
+  Completed = "Completed",
+  Rejected = "Rejected",
 }
 
 export type Order = {
   id: string;
-  fromUserId: string;
-  toUserId: string;
+  anounceId: string;
+  fromWalletAddress: string;
+  toWalletAddress: string;
   orderSize: number;
+  Fee: number;
   status: OrderStatus;
 };
 
