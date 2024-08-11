@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 import BuyOperation from "../components/BuyOperation";
 import SellOperation from "../components/SellOperations";
-import { useWallets } from "@privy-io/react-auth";
 import { ethers } from "ethers";
 import OrderChat from "~~/components/OrderChat";
+import { useBiconomy } from "~~/context/BiconomyContext";
 import { GetAnnounceDetails } from "~~/repository/AnnouncementRepository";
 import { GetOrderDetails } from "~~/repository/OrderRepository";
 import { Announcement, Order, OrderStatus, OrderType } from "~~/types/types";
@@ -19,12 +19,13 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
   const { id } = params;
   const [order, setOrder] = useState<Order>();
   const [anounce, setAnounce] = useState<Announcement>();
-  const { wallets } = useWallets();
   const [status, setStatus] = useState<string>(OrderStatus.Initialized);
+  const { smartAccountAddress } = useBiconomy();
 
-  const myWalletAddress = wallets[0]?.address;
+  const myWalletAddress = smartAccountAddress || "";
 
   const IsSellerPerspective = () => {
+    console.log({ myWalletAddress, order });
     if (order?.fromWalletAddress == myWalletAddress && anounce?.type == OrderType.Sell) return true;
     if (order?.toWalletAddress == myWalletAddress && anounce?.type == OrderType.Buy) return true;
     return false;
@@ -60,7 +61,7 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
 
   useEffect(() => {
     LoadOrder();
-  }, [order, anounce, setOrder, setAnounce]);
+  }, []);
 
   return (
     order &&
@@ -86,7 +87,7 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
           <p>{status}</p>
 
           <div className="col-span-4 text-center font-bold text-xl">
-            {IsSellerPerspective() ? (
+            {!IsSellerPerspective() ? (
               <SellOperation
                 orderId={convertToUint256(order.id)}
                 status={order.status}
