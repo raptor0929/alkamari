@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import MarketPlaceTable from "./MarketPlaceTable";
-import { mockDataOrdersBuy, mockDataOrdersSell } from "./MarketPlaceTable/data";
+import { mockDataAnnouncementsBuy, mockDataAnnouncementsSell } from "./MarketPlaceTable/data";
 import { Card, CardBody, Tab, Tabs } from "@nextui-org/react";
 
 interface IMarketPlaceProps {
@@ -9,15 +9,15 @@ interface IMarketPlaceProps {
 }
 
 const MarketPlace = ({ type }: IMarketPlaceProps) => {
-  const [ordersData, setOrdersData] = useState(mockDataOrdersBuy);
+  const [ordersData, setOrdersData] = useState(mockDataAnnouncementsBuy);
 
   const router = useRouter();
 
   useEffect(() => {
     if (type === "buy") {
-      setOrdersData(mockDataOrdersBuy);
+      setOrdersData(mockDataAnnouncementsBuy);
     } else {
-      setOrdersData(mockDataOrdersSell);
+      setOrdersData(mockDataAnnouncementsSell);
     }
   }, [type]);
 

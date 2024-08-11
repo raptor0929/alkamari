@@ -1,7 +1,8 @@
-import { UserData } from "../../types/types";
+import { AnnouncementsData } from "../../types/types";
 
-export const mockDataOrdersBuy: UserData[] = [
+export const mockDataAnnouncementsBuy: AnnouncementsData[] = [
   {
+    announcementId: "buy-001",
     advertiser: {
       name: "benji",
       verification: true,
@@ -10,10 +11,10 @@ export const mockDataOrdersBuy: UserData[] = [
     },
     price: {
       value: 0.948,
-      currency: "EUR",
+      currency: "BOB",
     },
     payment: {
-      methods: ["MONESE", "BUNQ", "VIVID"],
+      methods: ["Banco Unión", "BUNQ", "VIVID"],
     },
     limits: {
       min_limit: 649,
@@ -28,8 +29,10 @@ export const mockDataOrdersBuy: UserData[] = [
       type: "buy",
       status: "available",
     },
+    condition: "Prefer contact via WhatsApp before making a purchase.",
   },
   {
+    announcementId: "buy-002",
     advertiser: {
       name: "wincharts",
       verification: true,
@@ -38,10 +41,10 @@ export const mockDataOrdersBuy: UserData[] = [
     },
     price: {
       value: 0.949,
-      currency: "EUR",
+      currency: "BOB",
     },
     payment: {
-      methods: ["SEPAinst", "Wise", "N26", "Rev"],
+      methods: ["BancoSol", "Wise", "N26", "Rev"],
     },
     limits: {
       min_limit: 100,
@@ -56,8 +59,10 @@ export const mockDataOrdersBuy: UserData[] = [
       type: "buy",
       status: "limited",
     },
+    condition: "Please confirm availability before transferring funds.",
   },
   {
+    announcementId: "buy-003",
     advertiser: {
       name: "crypto_master",
       verification: false,
@@ -66,10 +71,10 @@ export const mockDataOrdersBuy: UserData[] = [
     },
     price: {
       value: 0.95,
-      currency: "EUR",
+      currency: "BOB",
     },
     payment: {
-      methods: ["PayPal", "Skrill"],
+      methods: ["Banco Fassil", "Skrill"],
     },
     limits: {
       min_limit: 50,
@@ -84,8 +89,10 @@ export const mockDataOrdersBuy: UserData[] = [
       type: "buy",
       status: "available",
     },
+    condition: "Transfers only between 9 AM to 5 PM on weekdays.",
   },
   {
+    announcementId: "buy-004",
     advertiser: {
       name: "crypto_dealer",
       verification: true,
@@ -94,10 +101,10 @@ export const mockDataOrdersBuy: UserData[] = [
     },
     price: {
       value: 0.947,
-      currency: "EUR",
+      currency: "BOB",
     },
     payment: {
-      methods: ["Revolut", "N26"],
+      methods: ["Banco Mercantil Santa Cruz", "N26"],
     },
     limits: {
       min_limit: 500,
@@ -112,8 +119,10 @@ export const mockDataOrdersBuy: UserData[] = [
       type: "buy",
       status: "available",
     },
+    condition: "Please contact me before placing an order.",
   },
   {
+    announcementId: "buy-005",
     advertiser: {
       name: "usdt_king",
       verification: false,
@@ -122,10 +131,10 @@ export const mockDataOrdersBuy: UserData[] = [
     },
     price: {
       value: 0.946,
-      currency: "EUR",
+      currency: "BOB",
     },
     payment: {
-      methods: ["Bank Transfer"],
+      methods: ["Banco Económico", "Bank Transfer"],
     },
     limits: {
       min_limit: 100,
@@ -140,8 +149,10 @@ export const mockDataOrdersBuy: UserData[] = [
       type: "buy",
       status: "available",
     },
+    condition: "Quick transactions are preferred. Please be prompt.",
   },
   {
+    announcementId: "buy-006",
     advertiser: {
       name: "p2p_trader",
       verification: true,
@@ -150,10 +161,10 @@ export const mockDataOrdersBuy: UserData[] = [
     },
     price: {
       value: 0.951,
-      currency: "EUR",
+      currency: "BOB",
     },
     payment: {
-      methods: ["Payoneer", "Wise"],
+      methods: ["Payoneer", "Wise", "Banco Ganadero"],
     },
     limits: {
       min_limit: 200,
@@ -168,176 +179,10 @@ export const mockDataOrdersBuy: UserData[] = [
       type: "buy",
       status: "available",
     },
+    condition: "Payment confirmation is required before completing the trade.",
   },
   {
-    advertiser: {
-      name: "euro_trader",
-      verification: false,
-      reputation: "new",
-      transactions: 98,
-    },
-    price: {
-      value: 0.952,
-      currency: "EUR",
-    },
-    payment: {
-      methods: ["SEPA", "Revolut"],
-    },
-    limits: {
-      min_limit: 300,
-      max_limit: 1500,
-    },
-    available: {
-      amount: 900,
-      currency: "USDT",
-      network: "BNB Chain",
-    },
-    action: {
-      type: "buy",
-      status: "available",
-    },
-  },
-  {
-    advertiser: {
-      name: "quick_seller",
-      verification: true,
-      reputation: "star",
-      transactions: 785,
-    },
-    price: {
-      value: 0.947,
-      currency: "EUR",
-    },
-    payment: {
-      methods: ["Skrill", "PayPal"],
-    },
-    limits: {
-      min_limit: 400,
-      max_limit: 4500,
-    },
-    available: {
-      amount: 2200,
-      currency: "USDT",
-      network: "BNB Chain",
-    },
-    action: {
-      type: "buy",
-      status: "available",
-    },
-  },
-  {
-    advertiser: {
-      name: "best_rate",
-      verification: true,
-      reputation: "star",
-      transactions: 920,
-    },
-    price: {
-      value: 0.945,
-      currency: "EUR",
-    },
-    payment: {
-      methods: ["Bank Transfer", "Revolut"],
-    },
-    limits: {
-      min_limit: 100,
-      max_limit: 3500,
-    },
-    available: {
-      amount: 3000,
-      currency: "USDT",
-      network: "BNB Chain",
-    },
-    action: {
-      type: "buy",
-      status: "available",
-    },
-  },
-  {
-    advertiser: {
-      name: "safe_trade",
-      verification: false,
-      reputation: "trusted",
-      transactions: 420,
-    },
-    price: {
-      value: 0.948,
-      currency: "EUR",
-    },
-    payment: {
-      methods: ["SEPA", "Payoneer"],
-    },
-    limits: {
-      min_limit: 50,
-      max_limit: 2000,
-    },
-    available: {
-      amount: 1200,
-      currency: "USDT",
-      network: "BNB Chain",
-    },
-    action: {
-      type: "buy",
-      status: "available",
-    },
-  },
-  {
-    advertiser: {
-      name: "pro_trader",
-      verification: true,
-      reputation: "star",
-      transactions: 1400,
-    },
-    price: {
-      value: 0.944,
-      currency: "EUR",
-    },
-    payment: {
-      methods: ["Wise", "N26", "PayPal"],
-    },
-    limits: {
-      min_limit: 500,
-      max_limit: 5000,
-    },
-    available: {
-      amount: 3500,
-      currency: "USDT",
-      network: "BNB Chain",
-    },
-    action: {
-      type: "buy",
-      status: "available",
-    },
-  },
-  {
-    advertiser: {
-      name: "fast_cash",
-      verification: true,
-      reputation: "star",
-      transactions: 600,
-    },
-    price: {
-      value: 0.946,
-      currency: "EUR",
-    },
-    payment: {
-      methods: ["Revolut", "Skrill"],
-    },
-    limits: {
-      min_limit: 150,
-      max_limit: 2000,
-    },
-    available: {
-      amount: 1700,
-      currency: "USDT",
-      network: "BNB Chain",
-    },
-    action: {
-      type: "buy",
-      status: "available",
-    },
-  },
-  {
+    announcementId: "buy-009",
     advertiser: {
       name: "benji",
       verification: true,
@@ -346,10 +191,10 @@ export const mockDataOrdersBuy: UserData[] = [
     },
     price: {
       value: 0.948,
-      currency: "EUR",
+      currency: "BOB",
     },
     payment: {
-      methods: ["MONESE", "BUNQ", "VIVID"],
+      methods: ["Banco Unión", "BUNQ", "VIVID"],
     },
     limits: {
       min_limit: 649,
@@ -364,8 +209,10 @@ export const mockDataOrdersBuy: UserData[] = [
       type: "buy",
       status: "available",
     },
+    condition: "Prefer contact via WhatsApp before making a purchase.",
   },
   {
+    announcementId: "buy-011",
     advertiser: {
       name: "benji",
       verification: true,
@@ -374,10 +221,10 @@ export const mockDataOrdersBuy: UserData[] = [
     },
     price: {
       value: 0.948,
-      currency: "EUR",
+      currency: "BOB",
     },
     payment: {
-      methods: ["MONESE", "BUNQ", "VIVID"],
+      methods: ["Banco Unión", "BUNQ", "VIVID"],
     },
     limits: {
       min_limit: 649,
@@ -392,8 +239,10 @@ export const mockDataOrdersBuy: UserData[] = [
       type: "buy",
       status: "available",
     },
+    condition: "Prefer contact via WhatsApp before making a purchase.",
   },
   {
+    announcementId: "buy-019",
     advertiser: {
       name: "benji",
       verification: true,
@@ -402,10 +251,10 @@ export const mockDataOrdersBuy: UserData[] = [
     },
     price: {
       value: 0.948,
-      currency: "EUR",
+      currency: "BOB",
     },
     payment: {
-      methods: ["MONESE", "BUNQ", "VIVID"],
+      methods: ["Banco Unión", "BUNQ", "VIVID"],
     },
     limits: {
       min_limit: 649,
@@ -420,8 +269,10 @@ export const mockDataOrdersBuy: UserData[] = [
       type: "buy",
       status: "available",
     },
+    condition: "Prefer contact via WhatsApp before making a purchase.",
   },
   {
+    announcementId: "buy-021",
     advertiser: {
       name: "benji",
       verification: true,
@@ -430,10 +281,10 @@ export const mockDataOrdersBuy: UserData[] = [
     },
     price: {
       value: 0.948,
-      currency: "EUR",
+      currency: "BOB",
     },
     payment: {
-      methods: ["MONESE", "BUNQ", "VIVID"],
+      methods: ["Banco Unión", "BUNQ", "VIVID"],
     },
     limits: {
       min_limit: 649,
@@ -448,39 +299,13 @@ export const mockDataOrdersBuy: UserData[] = [
       type: "buy",
       status: "available",
     },
-  },
-  {
-    advertiser: {
-      name: "benji",
-      verification: true,
-      reputation: "star",
-      transactions: 329,
-    },
-    price: {
-      value: 0.948,
-      currency: "EUR",
-    },
-    payment: {
-      methods: ["MONESE", "BUNQ", "VIVID"],
-    },
-    limits: {
-      min_limit: 649,
-      max_limit: 649,
-    },
-    available: {
-      amount: 685,
-      currency: "USDT",
-      network: "BNB Chain",
-    },
-    action: {
-      type: "buy",
-      status: "available",
-    },
+    condition: "Prefer contact via WhatsApp before making a purchase.",
   },
 ];
 
-export const mockDataOrdersSell: UserData[] = [
+export const mockDataAnnouncementsSell: AnnouncementsData[] = [
   {
+    announcementId: "sell-001",
     advertiser: {
       name: "crypto_seller",
       verification: true,
@@ -489,10 +314,10 @@ export const mockDataOrdersSell: UserData[] = [
     },
     price: {
       value: 0.942,
-      currency: "EUR",
+      currency: "BOB",
     },
     payment: {
-      methods: ["SEPA", "Revolut"],
+      methods: ["SEPA", "Revolut", "Banco Ganadero"],
     },
     limits: {
       min_limit: 100,
@@ -507,8 +332,10 @@ export const mockDataOrdersSell: UserData[] = [
       type: "sell",
       status: "available",
     },
+    condition: "Immediate payment confirmation required upon sale.",
   },
   {
+    announcementId: "sell-002",
     advertiser: {
       name: "usd_seller",
       verification: false,
@@ -517,10 +344,10 @@ export const mockDataOrdersSell: UserData[] = [
     },
     price: {
       value: 0.943,
-      currency: "EUR",
+      currency: "BOB",
     },
     payment: {
-      methods: ["Bank Transfer", "Wise"],
+      methods: ["Banco Económico", "Wise"],
     },
     limits: {
       min_limit: 50,
@@ -535,8 +362,10 @@ export const mockDataOrdersSell: UserData[] = [
       type: "sell",
       status: "available",
     },
+    condition: "Please notify me once the payment is made.",
   },
   {
+    announcementId: "sell-003",
     advertiser: {
       name: "fast_trader",
       verification: true,
@@ -545,10 +374,10 @@ export const mockDataOrdersSell: UserData[] = [
     },
     price: {
       value: 0.944,
-      currency: "EUR",
+      currency: "BOB",
     },
     payment: {
-      methods: ["PayPal", "Skrill"],
+      methods: ["PayPal", "Skrill", "Banco Mercantil Santa Cruz"],
     },
     limits: {
       min_limit: 500,
@@ -563,173 +392,6 @@ export const mockDataOrdersSell: UserData[] = [
       type: "sell",
       status: "available",
     },
-  },
-  {
-    advertiser: {
-      name: "binance_trader",
-      verification: true,
-      reputation: "star",
-      transactions: 650,
-    },
-    price: {
-      value: 0.941,
-      currency: "EUR",
-    },
-    payment: {
-      methods: ["SEPAinst", "N26"],
-    },
-    limits: {
-      min_limit: 200,
-      max_limit: 4500,
-    },
-    available: {
-      amount: 2800,
-      currency: "USDT",
-      network: "BNB Chain",
-    },
-    action: {
-      type: "sell",
-      status: "available",
-    },
-  },
-  {
-    advertiser: {
-      name: "usdt_seller",
-      verification: false,
-      reputation: "trusted",
-      transactions: 500,
-    },
-    price: {
-      value: 0.94,
-      currency: "EUR",
-    },
-    payment: {
-      methods: ["Revolut", "Wise"],
-    },
-    limits: {
-      min_limit: 150,
-      max_limit: 3500,
-    },
-    available: {
-      amount: 3200,
-      currency: "USDT",
-      network: "BNB Chain",
-    },
-    action: {
-      type: "sell",
-      status: "available",
-    },
-  },
-  {
-    advertiser: {
-      name: "secure_trader",
-      verification: true,
-      reputation: "star",
-      transactions: 700,
-    },
-    price: {
-      value: 0.939,
-      currency: "EUR",
-    },
-    payment: {
-      methods: ["SEPA", "Revolut"],
-    },
-    limits: {
-      min_limit: 100,
-      max_limit: 2000,
-    },
-    available: {
-      amount: 1200,
-      currency: "USDT",
-      network: "BNB Chain",
-    },
-    action: {
-      type: "sell",
-      status: "available",
-    },
-  },
-  {
-    advertiser: {
-      name: "crypto_exchange",
-      verification: true,
-      reputation: "star",
-      transactions: 800,
-    },
-    price: {
-      value: 0.938,
-      currency: "EUR",
-    },
-    payment: {
-      methods: ["Wise", "Skrill"],
-    },
-    limits: {
-      min_limit: 300,
-      max_limit: 4000,
-    },
-    available: {
-      amount: 2400,
-      currency: "USDT",
-      network: "BNB Chain",
-    },
-    action: {
-      type: "sell",
-      status: "available",
-    },
-  },
-  {
-    advertiser: {
-      name: "quick_exchange",
-      verification: false,
-      reputation: "new",
-      transactions: 100,
-    },
-    price: {
-      value: 0.941,
-      currency: "EUR",
-    },
-    payment: {
-      methods: ["Bank Transfer", "Revolut"],
-    },
-    limits: {
-      min_limit: 50,
-      max_limit: 1500,
-    },
-    available: {
-      amount: 1100,
-      currency: "USDT",
-      network: "BNB Chain",
-    },
-    action: {
-      type: "sell",
-      status: "available",
-    },
-  },
-  {
-    advertiser: {
-      name: "trusted_seller",
-      verification: true,
-      reputation: "trusted",
-      transactions: 500,
-    },
-    price: {
-      value: 0.937,
-      currency: "EUR",
-    },
-    payment: {
-      methods: ["SEPA", "Payoneer"],
-    },
-    limits: {
-      min_limit: 150,
-      max_limit: 3000,
-    },
-    available: {
-      amount: 2000,
-      currency: "USDT",
-      network: "BNB Chain",
-    },
-    action: {
-      type: "sell",
-      status: "available",
-    },
+    condition: "Quick and secure trades preferred.",
   },
 ];

@@ -30,11 +30,13 @@ export type Action = {
   status: "available" | "limited";
 };
 
-export type UserData = {
+export type AnnouncementsData = {
+  announcementId: string;
   advertiser: Advertiser;
   price: Price;
   payment: Payment;
   limits: Limits;
   available: Available;
   action: Action;
+  condition?: string;
 };
