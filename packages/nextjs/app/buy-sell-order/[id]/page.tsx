@@ -45,7 +45,8 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
     // };
     const currentOrder = await GetOrderDetails(id);
     setOrder(currentOrder);
-    const currentAnonunce = await GetAnnounceDetails(currentOrder.anounceId);
+    const currentAnonunce = await GetAnnounceDetails(currentOrder?.anounceId);
+    console.log(currentOrder?.anounceId, "currentOrder.anounceId");
     setAnounce(currentAnonunce);
   };
 
@@ -83,7 +84,7 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
           <div className="col-span-4 text-center font-bold text-xl">
             {!IsSellerPerspective() ? (
               <SellOperation
-                documentId={order.id}
+                documentId={order.id + ""}
                 orderId={order.correlationId}
                 status={order.status}
                 makerAddress={order.fromWalletAddress}
@@ -93,7 +94,7 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
               />
             ) : (
               <BuyOperation
-                documentId={order.id}
+                documentId={order.id + ""}
                 orderId={order.correlationId}
                 status={order.status}
                 makerAddress={order.fromWalletAddress}

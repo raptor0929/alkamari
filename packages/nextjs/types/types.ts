@@ -31,7 +31,7 @@ export enum OrderStatus {
 }
 
 export type Order = {
-  id: string;
+  id?: string;
   anounceId: string;
   fromWalletAddress: string;
   toWalletAddress: string;
@@ -39,7 +39,7 @@ export type Order = {
   Fee: number;
   status: OrderStatus;
   correlationId: number;
-  documentId: string;
+  documentId?: string;
 };
 
 export type User = {

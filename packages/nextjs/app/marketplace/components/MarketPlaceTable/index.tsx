@@ -4,6 +4,7 @@ import { AnnouncementsData } from "../../types/types";
 import InformationCell from "./InformationCell";
 import PaginationTable from "./PaginationTable";
 import { Button, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/react";
+import { CreateOrders } from "~~/repository/AnnouncementRepository";
 
 const MarketPlaceTable = ({ ordersData }: { ordersData: AnnouncementsData[] }) => {
   const router = useRouter();
@@ -23,8 +24,15 @@ const MarketPlaceTable = ({ ordersData }: { ordersData: AnnouncementsData[] }) =
     setExpandedKey(expandedKey === key ? null : key);
   };
 
-  const handleBuySell = (key: any) => {
-    router.push(`/buy-sell-order/${key}`, { scroll: false });
+  const handleBuySell = async (key: any) => {
+    const selectedOrder = ordersData.find(order => order.id === key);
+
+    if (selectedOrder) {
+      const response = await CreateOrders(selectedOrder);
+      router.push(`/buy-sell-order/${response}`, { scroll: false });
+    } else {
+      console.error("Order not found for key:");
+    }
   };
 
   return (
