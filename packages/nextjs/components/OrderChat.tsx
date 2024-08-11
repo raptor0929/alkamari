@@ -11,7 +11,6 @@ export interface IProps {
 
 const OrderChat = (props: IProps) => {
   const { from, members } = props;
-
   const client = useCreateChatClient({
     apiKey: process.env.NEXT_PUBLIC_GETSTREAM_API_KEY || "",
     tokenOrProvider: useGetTokenForChatUser(from),

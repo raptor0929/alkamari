@@ -105,7 +105,9 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
           </div>
         </div>
         <div style={{ maxHeight: "400px" }}>
-          <OrderChat from={myWalletAddress} members={[order.fromWalletAddress, order.toWalletAddress]} />
+          {myWalletAddress && (
+            <OrderChat from={myWalletAddress} members={[order.fromWalletAddress, order.toWalletAddress]} />
+          )}
         </div>
       </div>
     )
