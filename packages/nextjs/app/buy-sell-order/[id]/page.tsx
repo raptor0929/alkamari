@@ -4,16 +4,23 @@ import { useEffect, useState } from "react";
 import BuyOperation from "../components/BuyOperation";
 import SellOperation from "../components/SellOperations";
 import { useWallets } from "@privy-io/react-auth";
+import { ethers } from "ethers";
 import OrderChat from "~~/components/OrderChat";
 import { GetAnnounceDetails } from "~~/repository/AnnouncementRepository";
 import { GetOrderDetails } from "~~/repository/OrderRepository";
-import { Announcement, Order, OrderType } from "~~/types/types";
+import { Announcement, Order, OrderStatus, OrderType } from "~~/types/types";
+
+const convertToUint256 = (documentId: string) => {
+  console.log({ newId: ethers.utils.keccak256(ethers.utils.toUtf8Bytes(documentId)) });
+  return ethers.utils.keccak256(ethers.utils.toUtf8Bytes(documentId));
+};
 
 const BuySellOrder = ({ params }: { params: { id: string } }) => {
   const { id } = params;
   const [order, setOrder] = useState<Order>();
   const [anounce, setAnounce] = useState<Announcement>();
   const { wallets } = useWallets();
+  const [status, setStatus] = useState<string>(OrderStatus.Initialized);
 
   const myWalletAddress = wallets[0]?.address;
 
@@ -48,6 +55,10 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
     setOrder(currentOrder);
   };
 
+  const handleStatus = (value: string) => {
+    setStatus(value);
+  };
+
   useEffect(() => {
     LoadOrder();
   }, [order, anounce, setOrder, setAnounce]);
@@ -73,13 +84,27 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
           <p className="font-bold">Total Fee (USDT): </p>
           <p>{order.orderSize * (order.Fee / 100)}</p>
           <p className="font-bold">Status: </p>
-          <p>{order.status}</p>
+          <p>{status}</p>
 
           <div className="col-span-4 text-center font-bold text-xl">
             {IsSellerPerspective() ? (
-              <SellOperation orderId={order.id} status={order.status} />
+              <SellOperation
+                orderId={convertToUint256(order.id)}
+                status={order.status}
+                makerAddress={order.fromWalletAddress}
+                takerAddress={order.toWalletAddress}
+                value={order.orderSize * 1000000}
+                handleStatus={handleStatus}
+              />
             ) : (
-              <BuyOperation orderId={order.id} status={order.status} />
+              <BuyOperation
+                orderId={convertToUint256(order.id)}
+                status={order.status}
+                makerAddress={order.fromWalletAddress}
+                takerAddress={order.toWalletAddress}
+                value={order.orderSize * 1000000}
+                handleStatus={handleStatus}
+              />
             )}
           </div>
         </div>

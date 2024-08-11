@@ -23,10 +23,10 @@ export enum FiatCurrency {
 }
 
 export enum OrderStatus {
-  Initialized = "Initialized",
-  InProgress = "InProgress",
-  Confirmation = "Confirmation",
-  Completed = "Completed",
+  Initialized = "Initialized", // ACTIVE 1
+  InProgress = "InProgress", // CRYPTOS_IN_CUSTODY 2
+  Confirmation = "Confirmation", // FIATCOIN_TRANSFERED 3
+  Completed = "Completed", // COMPLETED 4
   Rejected = "Rejected",
 }
 
