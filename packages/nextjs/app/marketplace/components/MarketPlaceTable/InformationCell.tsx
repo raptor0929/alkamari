@@ -40,7 +40,7 @@ const InformationCell = ({
             </span>
           </div> */}
           <div className="mt-2">
-            <strong>Términos y Condiciones:</strong>
+            <strong>ID:</strong>
             <div className="flex justify-between">
               <p className="text-sm">{item?.id}</p>
               <div className="flex gap-2">

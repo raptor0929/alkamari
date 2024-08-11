@@ -80,7 +80,7 @@ const MarketPlaceTable = ({ ordersData }: { ordersData: AnnouncementsData[] }) =
               <TableRow key={item?.id}>
                 <TableCell>{item?.id}</TableCell>
                 <TableCell className="flex gap-4 items-center ">
-                  <span className="text-sm">{/* {item?.advertiser?.transactions} {item?.creationDate} */}</span>
+                  <span className="text-sm">{item?.creationDate}</span>
                 </TableCell>
                 <TableCell>
                   {item?.fiatUnitPice} {item?.fiatCurrency}
