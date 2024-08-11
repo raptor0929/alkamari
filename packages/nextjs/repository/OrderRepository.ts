@@ -1,9 +1,9 @@
 import { Order } from "../../entities/Order";
 import { GetDatabaseConnection } from "./BaseRepository";
 import { addDoc, getDocs, query, where } from "firebase/firestore";
-import { collection } from "firebase/firestore/lite";
+import { collection } from "firebase/firestore";
 
-const ordersCollection = collection(GetDatabaseConnection(), "Order");
+const ordersCollection = collection(GetDatabaseConnection(), "Orders");
 
 export const GetOrderDetails = async (id: string): Promise<Order> => {
   const q = query(ordersCollection, where("id", "==", id));

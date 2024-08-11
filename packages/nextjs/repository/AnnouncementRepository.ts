@@ -16,7 +16,9 @@ export const GetAllAnnouncements = async (): Promise<Array<Announcement>> => {
 export const GetAnnounceDetails = async (id: string): Promise<Announcement> => {
   const q = query(announcementsCollection, where("id", "==", id));
   const response = await getDocs(q);
-  return response.docs.at(0)?.data() as Announcement;
+  const data = response.docs.at(0)?.data() as Announcement;
+  data.id = response.docs.at(0)?.id;
+  return data;
 };
 
 export const AddAnnouncement = async (data: Announcement): Promise<void> => {

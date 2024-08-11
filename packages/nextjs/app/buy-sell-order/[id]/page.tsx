@@ -1,13 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import BuyOperation from "./components/BuyOperation";
-import SellOperation from "./components/SellOperations";
+import BuyOperation from "../components/BuyOperation";
+import SellOperation from "../components/SellOperations";
 import { useWallets } from "@privy-io/react-auth";
 import OrderChat from "~~/components/OrderChat";
-import { Announcement, Order, OrderStatus, OrderType } from "~~/types/types";
+import { GetAnnounceDetails } from "~~/repository/AnnouncementRepository";
+import { GetOrderDetails } from "~~/repository/OrderRepository";
+import { Announcement, Order, OrderType } from "~~/types/types";
 
-const BuySellOrder = () => {
+const BuySellOrder = ({ params }: { params: { id: string } }) => {
+  const { id } = params;
   const [order, setOrder] = useState<Order>();
   const [anounce, setAnounce] = useState<Announcement>();
   const { wallets } = useWallets();
@@ -23,31 +26,32 @@ const BuySellOrder = () => {
     return false;
   };
 
-  const LoadOrder = () => {
-    const currentAnonunce: Announcement = {
-      id: "asdasda",
-      type: OrderType.Buy,
-      fiatUnitPice: 10.3,
-      walletAddress: "test2",
-      creationDate:new Date().toString()
-    };
+  const LoadOrder = async () => {
+    // const currentAnonunce: Announcement = {
+    //   id: "asdasda",
+    //   type: OrderType.Buy,
+    //   fiatUnitPice: 10.3,
+    //   walletAddress: "test2",
+    //   creationDate:new Date().toString()
+    // };
+    // const currentOrder: Order = {
+    //   id: "asdasdasda",
+    //   anounceId: "asdasda",
+    //   fromWalletAddress: "test2",
+    //   toWalletAddress: "test1",
+    //   orderSize: 10.2,
+    //   Fee: 1,
+    //   status: OrderStatus.InProgress,
+    // };
+    const currentOrder = await GetOrderDetails(id);
+    const currentAnonunce = await GetAnnounceDetails(currentOrder.anounceId);
     setAnounce(currentAnonunce);
-    const currentOrder: Order = {
-      id: "asdasdasda",
-      anounceId: "asdasda",
-      fromWalletAddress: "test2",
-      toWalletAddress: "test1",
-      orderSize: 10.2,
-      Fee: 1,
-      status: OrderStatus.InProgress,
-    };
-
     setOrder(currentOrder);
   };
 
   useEffect(() => {
     LoadOrder();
-  }, [order, LoadOrder]);
+  }, [order]);
 
   return (
     order &&
