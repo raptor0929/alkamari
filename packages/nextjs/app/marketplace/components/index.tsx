@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import MarketPlaceTable from "./MarketPlaceTable";
 import { mockDataAnnouncementsBuy, mockDataAnnouncementsSell } from "./MarketPlaceTable/data";
 import { Card, CardBody, Tab, Tabs } from "@nextui-org/react";
+import { GetAllAnnouncements } from "~~/repository/AnnouncementRepository";
 
 interface IMarketPlaceProps {
   type: "buy" | "sell";
@@ -24,6 +25,13 @@ const MarketPlace = ({ type }: IMarketPlaceProps) => {
   const handleTabChange = (newType: "buy" | "sell") => {
     router.push(`/marketplace?type=${newType}`);
   };
+
+  useEffect(() => {
+    const getData = async () => {
+      return await GetAllAnnouncements();
+    };
+    getData().then(data => console.log(data));
+  }, []);
 
   return (
     <div className="h-full">

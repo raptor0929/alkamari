@@ -5,12 +5,11 @@ import BuyOperation from "../components/BuyOperation";
 import SellOperation from "../components/SellOperations";
 import { useWallets } from "@privy-io/react-auth";
 import OrderChat from "~~/components/OrderChat";
-import { GetAnnounceDetails } from "~~/repository/AnnouncementRepository";
-import { GetOrderDetails } from "~~/repository/OrderRepository";
-import { Announcement, Order, OrderType } from "~~/types/types";
+import { Announcement, Order, OrderStatus, OrderType } from "~~/types/types";
 
 const BuySellOrder = ({ params }: { params: { id: string } }) => {
   const { id } = params;
+  console.log(id);
   const [order, setOrder] = useState<Order>();
   const [anounce, setAnounce] = useState<Announcement>();
   const { wallets } = useWallets();
@@ -27,24 +26,25 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
   };
 
   const LoadOrder = async () => {
-    // const currentAnonunce: Announcement = {
-    //   id: "asdasda",
-    //   type: OrderType.Buy,
-    //   fiatUnitPice: 10.3,
-    //   walletAddress: "test2",
-    //   creationDate:new Date().toString()
-    // };
-    // const currentOrder: Order = {
-    //   id: "asdasdasda",
-    //   anounceId: "asdasda",
-    //   fromWalletAddress: "test2",
-    //   toWalletAddress: "test1",
-    //   orderSize: 10.2,
-    //   Fee: 1,
-    //   status: OrderStatus.InProgress,
-    // };
-    const currentOrder = await GetOrderDetails(id);
-    const currentAnonunce = await GetAnnounceDetails(currentOrder.anounceId);
+    const currentAnonunce: Announcement = {
+      id: "asdasda",
+      type: OrderType.Buy,
+      fiatUnitPice: 10.3,
+      walletAddress: "test2",
+      creationDate: new Date().toString(),
+    };
+    const currentOrder: Order = {
+      id: "asdasdasda",
+      anounceId: "asdasda",
+      fromWalletAddress: "test2",
+      toWalletAddress: "test1",
+      orderSize: 10.2,
+      Fee: 1,
+      status: OrderStatus?.InProgress,
+    };
+
+    // const currentOrder = await GetOrderDetails(id);
+    // const currentAnonunce = await GetAnnounceDetails(currentOrder.anounceId);
     setAnounce(currentAnonunce);
     setOrder(currentOrder);
   };
