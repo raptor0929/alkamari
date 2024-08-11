@@ -1,16 +1,19 @@
-export enum OrderType{
-    Buy = 0,
-    Sell = 1
+export enum OrderType {
+    Buy = "Buy",
+    Sell = "Sell"
+}  
+
+export enum CryptoCurrency {
+    USDT = "USDT",
+}
+export enum FiatCurrency {
+    BOB = "BOB",
 }
 
-export enum Currency{
-    USDT = 0,
-    BOB = 1
-} 
-
-export enum OrderStatus{
-    Initialized = 0,
-    InProgress = 1,
-    Completed = 2,
-    Rejected = 3
+export enum OrderStatus {
+    Initialized = "Initialized",
+    InProgress = "InProgress",
+    Confirmation = "Confirmation",
+    Completed = "Completed",
+    Rejected = "Rejected",
 }

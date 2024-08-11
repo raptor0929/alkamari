@@ -1,13 +1,14 @@
 import { OrderType, Currency } from "./enums"
 
 export type Announcement = {
-    id:string,
-    userId:string,
-    type:OrderType,
-    fromCurrency: Currency,
-    toCurrency: Currency,
-    ammount: number,
-    creationDate: Date,
-    active: boolean
-}
+    id: string;
+    walletAddress: string;
+    type: OrderType;
+    cryptoCurrency?: CryptoCurrency;
+    fiatCurrency?: FiatCurrency;
+    cryptoAmount?: number;
+    fiatUnitPice: number;
+    creationDate?: Date;
+    active?: boolean;
+  };
 

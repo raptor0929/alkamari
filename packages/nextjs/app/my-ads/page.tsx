@@ -2,20 +2,24 @@
 
 import React from "react";
 import AdDetails from "./components/AdDetails";
-import { data } from "./utils/data";
 import { Button, Link, Pagination, Table, TableBody, TableColumn, TableHeader } from "@nextui-org/react";
+import { useWallets } from "@privy-io/react-auth";
+import { GetAllAnnouncements } from "~~/repository/AnnouncementRepository";
 import { Announcement, OrderType } from "~~/types/types";
 
 const MyAdsComponent = () => {
-  const [page, setPage] = React.useState(1);
   const rowsPerPage = 10;
+  const { wallets } = useWallets();
+  const myWalletAddress = wallets[0].address;
+  const [page, setPage] = React.useState(1);
   const [anouncemets, setAnouncemets] = React.useState<Announcement[]>([]);
   const [operationType, setOperationType] = React.useState(OrderType.Buy);
   const [pages, setPages] = React.useState(1);
 
   const LoadAnouncements = async () => {
-    const myAnouncemets = data as unknown as Announcement[];
-    const filterdData = myAnouncemets.filter(x => x.type === operationType);
+    const myAnouncemets = await GetAllAnnouncements();
+
+    const filterdData = myAnouncemets.filter(x => x.type === operationType && x.walletAddress == myWalletAddress);
     setAnouncemets(filterdData);
     setPages(Math.ceil(filterdData.length / rowsPerPage));
     setPage(1);
@@ -30,7 +34,7 @@ const MyAdsComponent = () => {
 
   React.useEffect(() => {
     LoadAnouncements();
-  }, [LoadAnouncements, operationType]);
+  }, [operationType]);
 
   return (
     <>

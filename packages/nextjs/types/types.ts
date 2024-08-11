@@ -1,13 +1,13 @@
 export type Announcement = {
-  id: string;
+  id?: string;
   walletAddress: string;
   type: OrderType;
-  cryptoCurrency?: CryptoCurrency;
-  fiatCurrency?: FiatCurrency;
+  cryptoCurrency?: CryptoCurrency.USDT;
+  fiatCurrency?: FiatCurrency.BOB;
   cryptoAmount?: number;
   fiatUnitPice: number;
-  creationDate?: Date;
-  active?: boolean;
+  creationDate: string;
+  active?: true;
 };
 
 export enum OrderType {

@@ -29,6 +29,7 @@ const BuySellOrder = () => {
       type: OrderType.Buy,
       fiatUnitPice: 10.3,
       walletAddress: "test2",
+      creationDate:new Date().toString()
     };
     setAnounce(currentAnonunce);
     const currentOrder: Order = {
