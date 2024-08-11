@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import AppLogo from "../Global/AppLogo";
 import { Button, Modal, ModalBody, ModalContent, ModalHeader, useDisclosure } from "@nextui-org/react";
@@ -11,7 +12,7 @@ import { MdOutlineSubscriptions } from "react-icons/md";
 const SidebarComponent = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const pathname = usePathname(); // Obtén la ruta actual
-  console.log(pathname);
+
   const handleOpen = () => {
     onOpen();
   };
@@ -45,16 +46,16 @@ const SidebarComponent = () => {
 
                   return (
                     <li key={index} className="flex items-center">
-                      <a
+                      <Link
                         href={item.href}
+                        passHref
                         className={`flex items-center text-md font-semibold p-2 rounded-md ${
                           isActive ? "bg-gray-200 text-button-hover" : "text-gray-700"
                         } hover:bg-gray-300 hover:text-button-hover transition-colors`}
                       >
                         <Icon className="mr-2" />
                         {item.label}
-                        {pathname + " " + item.href}
-                      </a>
+                      </Link>
                     </li>
                   );
                 })}
