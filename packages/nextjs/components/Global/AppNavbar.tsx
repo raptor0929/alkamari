@@ -4,7 +4,7 @@ import SidebarComponent from "../Layout/SidebarComponent";
 import AccountConnect from "./PrivyConnect/AccountConnect";
 import { Button } from "@nextui-org/react";
 import { useTheme } from "next-themes";
-import { FaBell, FaCog, FaGlobe, FaUser } from "react-icons/fa";
+import { FaBell, FaCog, FaUser } from "react-icons/fa";
 
 const AppNavbar = () => {
   const { setTheme } = useTheme();
@@ -18,9 +18,9 @@ const AppNavbar = () => {
       <SidebarComponent />
       <div className="flex items-center space-x-4">
         <Button className="bg-border-color" endContent={<FaBell size={20} />}></Button>
-        <Button className="bg-border-color" endContent={<FaGlobe size={20} />}>
+        {/* <Button className="bg-border-color" endContent={<FaGlobe size={20} />}>
           <span className="font-medium">ES</span>
-        </Button>
+        </Button> */}
         <AccountConnect />
         <Button className="p-2 bg-border-color rounded" endContent={<FaUser size={20} />}></Button>
         <Button className="p-2 bg-border-color rounded" endContent={<FaCog size={20} />}></Button>

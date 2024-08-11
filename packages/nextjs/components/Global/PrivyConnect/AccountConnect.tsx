@@ -25,7 +25,7 @@ const AccountConnect = () => {
 
   return (
     <div
-      className="flex flex-grow"
+      className="flex flex-grow bg-border-color rounded-lg "
       {...(!ready &&
         authenticated && {
           "aria-hidden": true,

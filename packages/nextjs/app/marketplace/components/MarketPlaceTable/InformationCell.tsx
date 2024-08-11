@@ -2,7 +2,15 @@ import React from "react";
 import { AnnouncementsData } from "../../types/types";
 import { Button, Card, CardBody } from "@nextui-org/react";
 
-const InformationCell = ({ item, handleExpand }: { item: AnnouncementsData; handleExpand: any }) => {
+const InformationCell = ({
+  item,
+  handleExpand,
+  handleBuySell,
+}: {
+  item: AnnouncementsData;
+  handleExpand: any;
+  handleBuySell: any;
+}) => {
   return (
     <Card className="w-full">
       <CardBody>
@@ -36,10 +44,13 @@ const InformationCell = ({ item, handleExpand }: { item: AnnouncementsData; hand
             <div className="flex justify-between">
               <p className="text-sm">{item?.condition}</p>
               <div className="flex gap-2">
-                <Button onPress={() => handleExpand(item.advertiser.name)}>Cancelar</Button>
+                <Button onPress={() => handleExpand(item.announcementId)}>Cancelar</Button>
                 <Button
                   className={`${item.action.type === "buy" ? "bg-success-button" : "bg-error"}`}
-                  onPress={() => handleExpand(item.advertiser.name)}
+                  onPress={() => {
+                    // handleExpand(item.announcementId);
+                    handleBuySell(item.announcementId);
+                  }}
                 >
                   <span className="capitalize">{item.action.type === "buy" ? "Comprar" : "Vender"}</span>
                   USD

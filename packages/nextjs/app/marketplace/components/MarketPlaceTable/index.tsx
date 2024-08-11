@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { AnnouncementsData } from "../../types/types";
 import InformationCell from "./InformationCell";
 import PaginationTable from "./PaginationTable";
@@ -6,6 +7,7 @@ import { Button, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow
 import { FaCheckCircle } from "react-icons/fa";
 
 const MarketPlaceTable = ({ ordersData }: { ordersData: AnnouncementsData[] }) => {
+  const router = useRouter();
   const [page, setPage] = useState(1);
   const [expandedKey, setExpandedKey] = useState<React.Key | null>(null);
   const rowsPerPage = 7;
@@ -19,7 +21,11 @@ const MarketPlaceTable = ({ ordersData }: { ordersData: AnnouncementsData[] }) =
   }, [page, ordersData]);
 
   const handleExpand = (key: React.Key) => {
-    setExpandedKey(expandedKey === key ? null : key); // Toggle the accordion
+    setExpandedKey(expandedKey === key ? null : key);
+  };
+
+  const handleBuySell = (key: any) => {
+    router.push(`/buy-sell-order/${key}`, { scroll: false });
   };
 
   return (
@@ -56,7 +62,7 @@ const MarketPlaceTable = ({ ordersData }: { ordersData: AnnouncementsData[] }) =
             return (
               <TableRow key={item.announcementId}>
                 <TableCell colSpan={6} className="bg-bg-200">
-                  <InformationCell item={item} handleExpand={handleExpand} />
+                  <InformationCell item={item} handleExpand={handleExpand} handleBuySell={handleBuySell} />
                 </TableCell>
                 <TableCell className="hidden">{""}</TableCell>
                 <TableCell className="hidden">{""}</TableCell>
@@ -77,7 +83,7 @@ const MarketPlaceTable = ({ ordersData }: { ordersData: AnnouncementsData[] }) =
                       </span>
                     </li>
                     <li>
-                      <span className="text-sm">{item.advertiser.transactions} Transacciones</span>
+                      <span className="text-sm">{item.advertiser.transactions}Transacciones</span>
                     </li>
                   </ul>
                 </TableCell>

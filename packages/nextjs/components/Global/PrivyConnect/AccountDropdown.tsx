@@ -11,7 +11,7 @@ export function AccountDropdown() {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <div className=" p-2">
+        <div className=" p-2 ">
           {address && (
             <div className="flex items-center gap-2">
               <Address address={`0x${address.slice(2)}`} />
@@ -23,7 +23,7 @@ export function AccountDropdown() {
         <DropdownMenu.Content
           align="end"
           sideOffset={40}
-          className="z-20 -mt-10 rounded-lg bg-neutral-900 bg-opacity-90 px-6 pb-2 pt-6 shadow backdrop-blur-2xl"
+          className="z-20 -mt-9 rounded-lg bg-border-color bg-opacity-90 pl-6 pr-12 pb-2 pt-6 shadow backdrop-blur-2xl"
         >
           <AccountInfoPanel />
         </DropdownMenu.Content>

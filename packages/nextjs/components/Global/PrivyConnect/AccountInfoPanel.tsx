@@ -21,15 +21,15 @@ export function AccountInfoPanel() {
 
   return (
     <>
-      <div className="mb-4 inline-flex items-center justify-start gap-2">
+      <div className="mb-2 gap-1 flex flex-col">
+        <span className="text-xs" style={{ color: networkColor }}>
+          {targetNetwork.name}
+        </span>
         <div className="flex flex-col items-center mr-1">
           {/* <Balance address={address} className="min-h-0 h-auto" /> */}
-          <span className="text-xs" style={{ color: networkColor }}>
-            {targetNetwork.name}
-          </span>
         </div>
         <div className="inline-flex flex-col items-start justify-center gap-1">
-          <div className="font-inter w-32 text-base font-medium text-white">
+          <div className="font-inter w-32 text-base font-medium text-black">
             <Address address={`0x${address.slice(2)}`} />
           </div>
         </div>
@@ -38,11 +38,11 @@ export function AccountInfoPanel() {
       <button
         type="button"
         aria-label="Disconnect"
-        className="my-4 flex w-full items-center justify-between  text-danger"
+        className="my-2 flex w-full items-center justify-between  text-danger"
         onClick={handleDisconnectWallet}
       >
         <span className="font-inter w-32 text-left text-base font-medium ">Disconnect</span>
-        <ExitIcon className="-mr-1" />
+        <ExitIcon className="-mr-7" />
       </button>
     </>
   );

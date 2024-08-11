@@ -7,7 +7,6 @@ import { AiOutlineQuestionCircle, AiOutlineTransaction } from "react-icons/ai";
 import { BiSupport } from "react-icons/bi";
 import { BsCardChecklist } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
-import { MdOutlineSubscriptions } from "react-icons/md";
 
 const SidebarComponent = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -22,7 +21,6 @@ const SidebarComponent = () => {
     { label: "Mis anuncios", icon: BsCardChecklist, href: "/my-ads" },
     { label: "Transacciones", icon: AiOutlineTransaction, href: "/transacciones" },
     { label: "Soporte por telegram", icon: BiSupport, href: "/soporte" },
-    { label: "Suscripciones", icon: MdOutlineSubscriptions, href: "/suscripciones" },
     { label: "FAQs", icon: AiOutlineQuestionCircle, href: "/faqs" },
   ];
 
