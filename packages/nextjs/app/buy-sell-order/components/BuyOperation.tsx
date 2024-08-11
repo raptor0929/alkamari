@@ -6,7 +6,7 @@ import { OrderStatus } from "~~/types/types";
 
 interface IProps {
   status: OrderStatus;
-  orderId: string;
+  orderId: number;
   makerAddress: string;
   takerAddress: string;
   value: number;

@@ -26,6 +26,7 @@
     "@uniswap/v2-sdk": "~3.0.1",
     "blo": "~1.0.1",
     "burner-connector": "~0.0.8",
+    "crypto": "^1.0.1",
     "daisyui": "4.5.0",
     "firebase": "^10.12.5",
     "framer-motion": "^11.3.23",

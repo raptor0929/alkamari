@@ -3,17 +3,11 @@
 import { useEffect, useState } from "react";
 import BuyOperation from "../components/BuyOperation";
 import SellOperation from "../components/SellOperations";
-import { ethers } from "ethers";
 import OrderChat from "~~/components/OrderChat";
 import { useBiconomy } from "~~/context/BiconomyContext";
 import { GetAnnounceDetails } from "~~/repository/AnnouncementRepository";
 import { GetOrderDetails } from "~~/repository/OrderRepository";
 import { Announcement, Order, OrderStatus, OrderType } from "~~/types/types";
-
-const convertToUint256 = (documentId: string) => {
-  console.log({ newId: ethers.utils.keccak256(ethers.utils.toUtf8Bytes(documentId)) });
-  return ethers.utils.keccak256(ethers.utils.toUtf8Bytes(documentId));
-};
 
 const BuySellOrder = ({ params }: { params: { id: string } }) => {
   const { id } = params;
@@ -89,7 +83,7 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
           <div className="col-span-4 text-center font-bold text-xl">
             {!IsSellerPerspective() ? (
               <SellOperation
-                orderId={convertToUint256(order.id)}
+                orderId={order.correlationId}
                 status={order.status}
                 makerAddress={order.fromWalletAddress}
                 takerAddress={order.toWalletAddress}
@@ -98,7 +92,7 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
               />
             ) : (
               <BuyOperation
-                orderId={convertToUint256(order.id)}
+                orderId={order.correlationId}
                 status={order.status}
                 makerAddress={order.fromWalletAddress}
                 takerAddress={order.toWalletAddress}

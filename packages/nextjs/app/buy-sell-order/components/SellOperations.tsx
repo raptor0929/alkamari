@@ -6,7 +6,7 @@ import { OrderStatus } from "~~/types/types";
 
 interface IProps {
   status: OrderStatus;
-  orderId: string;
+  orderId: number;
   makerAddress: string;
   takerAddress: string;
   value: number;
@@ -19,7 +19,7 @@ const withSponsorship = {
 
 const ALKAMARI_ESCROW_CONTRACT_ADDRESS = "0x65E277875eB98136fD54003ea668630fe89e024d";
 const USDT_CONTRACT_ADDRESS = "0x7058f6D05fC49D0889a137a0A695AaE7e19D45bE";
-const currency = ALKAMARI_ESCROW_CONTRACT_ADDRESS;
+const currency = USDT_CONTRACT_ADDRESS;
 
 const SellOperation = (props: IProps) => {
   console.log({ sellerOperationProps: props });
