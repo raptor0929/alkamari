@@ -23,7 +23,7 @@ export function AccountDropdown() {
         <DropdownMenu.Content
           align="end"
           sideOffset={40}
-          className="z-20 -mt-9 rounded-lg bg-border-color bg-opacity-90 pl-6 pr-12 pb-2 pt-6 shadow backdrop-blur-2xl"
+          className="z-20 -mt-9 rounded-lg bg-border-color bg-opacity-90 pl-6 pr-12 pb-2 pt-4 shadow backdrop-blur-2xl"
         >
           <AccountInfoPanel />
         </DropdownMenu.Content>

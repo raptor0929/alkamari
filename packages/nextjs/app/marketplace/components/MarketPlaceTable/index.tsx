@@ -33,6 +33,7 @@ const MarketPlaceTable = ({ ordersData }: { ordersData: AnnouncementsData[] }) =
       bottomContent={<PaginationTable page={page} pages={pages} setPage={setPage} />}
       classNames={{
         base: "p-0 m-0",
+        table: "bg-section-bg",
       }}
       removeWrapper={true}
     >
