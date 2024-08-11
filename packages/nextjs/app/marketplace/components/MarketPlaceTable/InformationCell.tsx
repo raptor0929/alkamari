@@ -38,7 +38,7 @@ const InformationCell = ({ item, handleExpand }: { item: AnnouncementsData; hand
               <div className="flex gap-2">
                 <Button onPress={() => handleExpand(item.advertiser.name)}>Cancelar</Button>
                 <Button
-                  className={`${item.action.type === "buy" ? "bg-success" : "bg-error"}`}
+                  className={`${item.action.type === "buy" ? "bg-success-button" : "bg-error"}`}
                   onPress={() => handleExpand(item.advertiser.name)}
                 >
                   <span className="capitalize">{item.action.type === "buy" ? "Comprar" : "Vender"}</span>

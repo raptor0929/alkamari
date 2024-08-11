@@ -10,7 +10,7 @@ import { Announcement, OrderType } from "~~/types/types";
 const MyAdsComponent = () => {
   const rowsPerPage = 10;
   const { wallets } = useWallets();
-  const myWalletAddress = wallets[0].address;
+  const myWalletAddress = wallets[0]?.address;
   const [page, setPage] = React.useState(1);
   const [anouncemets, setAnouncemets] = React.useState<Announcement[]>([]);
   const [operationType, setOperationType] = React.useState(OrderType.Buy);

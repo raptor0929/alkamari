@@ -89,20 +89,20 @@ const MarketPlaceTable = ({ ordersData }: { ordersData: AnnouncementsData[] }) =
                 </TableCell>
                 <TableCell>
                   <ul>
-                    <li>Max:{item.limits.max_limit}</li>
-                    <li>min:{item.limits.min_limit}</li>
+                    <li>Max :{item.limits.max_limit}</li>
+                    <li>min :{item.limits.min_limit}</li>
                   </ul>
                 </TableCell>
                 <TableCell>
                   <ul>
-                    <li> amount: {item.available.amount} </li>
-                    <li> currency: {item.available.currency} </li>
-                    <li> network: {item.available.network} </li>
+                    <li> Cantidad: {item.available.amount} </li>
+                    <li> Moneda: {item.available.currency} </li>
+                    <li> Red: {item.available.network} </li>
                   </ul>
                 </TableCell>
                 <TableCell>
                   <Button
-                    className={`${item.action.type === "buy" ? "bg-success" : "bg-error"}`}
+                    className={`${item.action.type === "buy" ? "bg-success-button" : "bg-error"}`}
                     onPress={() => handleExpand(item.advertiser.name)}
                     key="action"
                   >

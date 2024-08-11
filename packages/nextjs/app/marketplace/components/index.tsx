@@ -39,18 +39,18 @@ const MarketPlace = ({ type }: IMarketPlaceProps) => {
         <Tabs
           aria-label="Options"
           classNames={{
-            cursor: `${type === "buy" ? "bg-success" : "bg-error"}`,
+            cursor: `${type === "buy" ? "bg-success-button" : "bg-error"}`,
           }}
           onSelectionChange={key => handleTabChange(key as "buy" | "sell")}
         >
-          <Tab key="buy" title="Buy" className="h-full">
+          <Tab key="buy" title="Comprar" className="h-full">
             <Card>
               <CardBody className="p-0 m-0">
                 <MarketPlaceTable ordersData={ordersData} />
               </CardBody>
             </Card>
           </Tab>
-          <Tab key="sell" title="Sell">
+          <Tab key="sell" title="Vender">
             <Card>
               <CardBody className="p-0 m-0">
                 <MarketPlaceTable ordersData={ordersData} />

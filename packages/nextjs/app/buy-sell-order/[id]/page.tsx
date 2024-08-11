@@ -14,7 +14,7 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
   const [anounce] = useState<Announcement>();
   const { wallets } = useWallets();
 
-  const myWalletAddress = wallets[0].address;
+  const myWalletAddress = wallets[0]?.address;
   const counterWalletAddress = (
     order?.fromWalletAddress == myWalletAddress ? order?.toWalletAddress : order?.fromWalletAddress
   ) as string;

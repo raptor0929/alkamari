@@ -74,6 +74,7 @@ module.exports = {
         "app-background": "#f5f4f1", // Fondo principal de la aplicación
         "section-bg": "#fffefb", // Fondo de secciones o contenedores
         "border-color": "#cccbc8", // Bordes o fondos sutiles
+        "success-button": "#68a67d"
       },
     },
   },

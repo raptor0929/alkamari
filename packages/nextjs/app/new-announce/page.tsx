@@ -11,7 +11,7 @@ const NewAnouncement = () => {
   const router = useRouter();
   const [operation, setOperation] = React.useState(OrderType.Buy);
   const { wallets } = useWallets();
-  const myWalletAddress = wallets[0].address;
+  const myWalletAddress = wallets[0]?.address;
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
