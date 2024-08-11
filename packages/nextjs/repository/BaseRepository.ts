@@ -3,8 +3,8 @@ import { initializeApp } from "firebase/app";
 import { Firestore, getFirestore } from "firebase/firestore";
 
 const firebaseApp = initializeApp({
-  apiKey: "AIzaSyB1AcxJSd_YrsgDLr9HAKaAm9CY3km2sAc",
-  projectId: "p2pcryptobo-9c76f",
+  apiKey: "AIzaSyBFKIM2oGPv0nAOFyqm-55BWKC-RWpCzdY",
+  projectId: "test123-1d80d",
 });
 
 let fireStoreDB: Firestore | undefined;
