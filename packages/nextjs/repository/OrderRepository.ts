@@ -33,6 +33,7 @@ export const UpdateOrderStatus = async (orderId: string, newStatus: OrderStatus)
   });
 };
 
-export const AddOrder = async (order: Order): Promise<void> => {
-  await addDoc(ordersCollection, order);
+export const AddOrder = async (order: Order): Promise<string> => {
+  const doc = await addDoc(ordersCollection, order);
+  return doc.id;
 };
