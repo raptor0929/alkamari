@@ -59,16 +59,5 @@ Esto iniciará la aplicación en modo desarrollo y podrás acceder a ella en `ht
 - **Interfaz de Usuario**: React, Tailwind CSS, Next.js
 - **Manejo de Estado**: Redux, Context API
 
-## 🔗 Enlaces Relevantes
-
-- Documentación Técnica
-- Whitepaper
-- Guía de Usuario
-
-## 📞 Contacto
-
-Si tienes alguna pregunta o sugerencia, no dudes en contactarnos a través de [correo electrónico](mailto:info@alkamari.com).
-
----
 
 _Este proyecto es una iniciativa innovadora para fortalecer la adopción de criptomonedas en Bolivia y proporcionar soluciones financieras accesibles para todos._
