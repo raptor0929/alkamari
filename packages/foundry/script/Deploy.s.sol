@@ -2,6 +2,8 @@
 pragma solidity ^0.8.19;
 
 import "../contracts/YourContract.sol";
+import "../contracts/AlkamariEscrow.sol";
+import "../contracts/USDT.sol";
 import "./DeployHelpers.s.sol";
 
 contract DeployScript is ScaffoldETHDeploy {
@@ -16,10 +18,17 @@ contract DeployScript is ScaffoldETHDeploy {
     }
     vm.startBroadcast(deployerPrivateKey);
 
-    YourContract yourContract = new YourContract(vm.addr(deployerPrivateKey));
+    AlkamariEscrow alkamariEscrow = new AlkamariEscrow();
     console.logString(
       string.concat(
-        "YourContract deployed at: ", vm.toString(address(yourContract))
+        "AlkamariEscrow deployed at: ", vm.toString(address(alkamariEscrow))
+      )
+    );
+
+    USDT usdt = new USDT("Tether", "USDT", 6);
+    console.logString(
+      string.concat(
+        "USDT deployed at: ", vm.toString(address(usdt))
       )
     );
 

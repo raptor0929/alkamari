@@ -4,6 +4,1551 @@
  */
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
-const deployedContracts = {} as const;
+const deployedContracts = {
+  421614: {
+    AlkamariEscrow: {
+      address: "0xa5b037ea58d0b12020c9d3afd6e034521ab3c90a",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "addStablesAddresses",
+          inputs: [
+            {
+              name: "_addressStableToWhitelist",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "cancelMaker",
+          inputs: [
+            {
+              name: "_orderId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "cancelMakerNative",
+          inputs: [
+            {
+              name: "_orderId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "cancelTaker",
+          inputs: [
+            {
+              name: "_orderId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "cancelTakerNative",
+          inputs: [
+            {
+              name: "_orderId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "createEscrow",
+          inputs: [
+            {
+              name: "_orderId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_taker",
+              type: "address",
+              internalType: "address payable",
+            },
+            {
+              name: "_value",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_currency",
+              type: "address",
+              internalType: "contract IERC20",
+            },
+            {
+              name: "_maker_premium",
+              type: "bool",
+              internalType: "bool",
+            },
+            {
+              name: "_taker_premium",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "createEscrowNativeCoin",
+          inputs: [
+            {
+              name: "_orderId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_taker",
+              type: "address",
+              internalType: "address payable",
+            },
+            {
+              name: "_value",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "_maker_premium",
+              type: "bool",
+              internalType: "bool",
+            },
+            {
+              name: "_taker_premium",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          outputs: [],
+          stateMutability: "payable",
+        },
+        {
+          type: "function",
+          name: "delStablesAddresses",
+          inputs: [
+            {
+              name: "_addressStableToWhitelist",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "escrows",
+          inputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "maker",
+              type: "address",
+              internalType: "address payable",
+            },
+            {
+              name: "taker",
+              type: "address",
+              internalType: "address payable",
+            },
+            {
+              name: "maker_premium",
+              type: "bool",
+              internalType: "bool",
+            },
+            {
+              name: "taker_premium",
+              type: "bool",
+              internalType: "bool",
+            },
+            {
+              name: "value",
+              type: "uint256",
+              internalType: "uint256",
+            },
+            {
+              name: "takerfee",
+              type: "uint16",
+              internalType: "uint16",
+            },
+            {
+              name: "makerfee",
+              type: "uint16",
+              internalType: "uint16",
+            },
+            {
+              name: "currency",
+              type: "address",
+              internalType: "contract IERC20",
+            },
+            {
+              name: "status",
+              type: "uint8",
+              internalType: "enum AlkamariEscrow.EscrowStatus",
+            },
+            {
+              name: "created",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "feeMaker",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint16",
+              internalType: "uint16",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "feeTaker",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint16",
+              internalType: "uint16",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "feesAvailable",
+          inputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "contract IERC20",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "feesAvailableNativeCoin",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "getState",
+          inputs: [
+            {
+              name: "_orderId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint8",
+              internalType: "enum AlkamariEscrow.EscrowStatus",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "refundMaker",
+          inputs: [
+            {
+              name: "_orderId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "refundMakerNativeCoin",
+          inputs: [
+            {
+              name: "_orderId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "releaseEscrow",
+          inputs: [
+            {
+              name: "_orderId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "releaseEscrowNativeCoin",
+          inputs: [
+            {
+              name: "_orderId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "releaseEscrowOwner",
+          inputs: [
+            {
+              name: "_orderId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "releaseEscrowOwnerNativeCoin",
+          inputs: [
+            {
+              name: "_orderId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "renounceOwnership",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setFeeMaker",
+          inputs: [
+            {
+              name: "_feeMaker",
+              type: "uint16",
+              internalType: "uint16",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setFeeTaker",
+          inputs: [
+            {
+              name: "_feeTaker",
+              type: "uint16",
+              internalType: "uint16",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setMarkAsPaid",
+          inputs: [
+            {
+              name: "_orderId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setMarkAsPaidOwner",
+          inputs: [
+            {
+              name: "_orderId",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "setTimeProcess",
+          inputs: [
+            {
+              name: "_timeProcess",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "timeProcess",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "transferOwnership",
+          inputs: [
+            {
+              name: "newOwner",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "version",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          stateMutability: "pure",
+        },
+        {
+          type: "function",
+          name: "withdrawFees",
+          inputs: [
+            {
+              name: "_currency",
+              type: "address",
+              internalType: "contract IERC20",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "withdrawFeesNativeCoin",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "EscrowCancelMaker",
+          inputs: [
+            {
+              name: "orderId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "escrow",
+              type: "tuple",
+              indexed: false,
+              internalType: "struct AlkamariEscrow.Escrow",
+              components: [
+                {
+                  name: "maker",
+                  type: "address",
+                  internalType: "address payable",
+                },
+                {
+                  name: "taker",
+                  type: "address",
+                  internalType: "address payable",
+                },
+                {
+                  name: "maker_premium",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "taker_premium",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "value",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "takerfee",
+                  type: "uint16",
+                  internalType: "uint16",
+                },
+                {
+                  name: "makerfee",
+                  type: "uint16",
+                  internalType: "uint16",
+                },
+                {
+                  name: "currency",
+                  type: "address",
+                  internalType: "contract IERC20",
+                },
+                {
+                  name: "status",
+                  type: "uint8",
+                  internalType: "enum AlkamariEscrow.EscrowStatus",
+                },
+                {
+                  name: "created",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+              ],
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "EscrowCancelTaker",
+          inputs: [
+            {
+              name: "orderId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "escrow",
+              type: "tuple",
+              indexed: false,
+              internalType: "struct AlkamariEscrow.Escrow",
+              components: [
+                {
+                  name: "maker",
+                  type: "address",
+                  internalType: "address payable",
+                },
+                {
+                  name: "taker",
+                  type: "address",
+                  internalType: "address payable",
+                },
+                {
+                  name: "maker_premium",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "taker_premium",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "value",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "takerfee",
+                  type: "uint16",
+                  internalType: "uint16",
+                },
+                {
+                  name: "makerfee",
+                  type: "uint16",
+                  internalType: "uint16",
+                },
+                {
+                  name: "currency",
+                  type: "address",
+                  internalType: "contract IERC20",
+                },
+                {
+                  name: "status",
+                  type: "uint8",
+                  internalType: "enum AlkamariEscrow.EscrowStatus",
+                },
+                {
+                  name: "created",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+              ],
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "EscrowComplete",
+          inputs: [
+            {
+              name: "orderId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "escrow",
+              type: "tuple",
+              indexed: false,
+              internalType: "struct AlkamariEscrow.Escrow",
+              components: [
+                {
+                  name: "maker",
+                  type: "address",
+                  internalType: "address payable",
+                },
+                {
+                  name: "taker",
+                  type: "address",
+                  internalType: "address payable",
+                },
+                {
+                  name: "maker_premium",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "taker_premium",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "value",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "takerfee",
+                  type: "uint16",
+                  internalType: "uint16",
+                },
+                {
+                  name: "makerfee",
+                  type: "uint16",
+                  internalType: "uint16",
+                },
+                {
+                  name: "currency",
+                  type: "address",
+                  internalType: "contract IERC20",
+                },
+                {
+                  name: "status",
+                  type: "uint8",
+                  internalType: "enum AlkamariEscrow.EscrowStatus",
+                },
+                {
+                  name: "created",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+              ],
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "EscrowDeposit",
+          inputs: [
+            {
+              name: "orderId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "escrow",
+              type: "tuple",
+              indexed: false,
+              internalType: "struct AlkamariEscrow.Escrow",
+              components: [
+                {
+                  name: "maker",
+                  type: "address",
+                  internalType: "address payable",
+                },
+                {
+                  name: "taker",
+                  type: "address",
+                  internalType: "address payable",
+                },
+                {
+                  name: "maker_premium",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "taker_premium",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "value",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "takerfee",
+                  type: "uint16",
+                  internalType: "uint16",
+                },
+                {
+                  name: "makerfee",
+                  type: "uint16",
+                  internalType: "uint16",
+                },
+                {
+                  name: "currency",
+                  type: "address",
+                  internalType: "contract IERC20",
+                },
+                {
+                  name: "status",
+                  type: "uint8",
+                  internalType: "enum AlkamariEscrow.EscrowStatus",
+                },
+                {
+                  name: "created",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+              ],
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "EscrowMarkAsPaid",
+          inputs: [
+            {
+              name: "orderId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "escrow",
+              type: "tuple",
+              indexed: false,
+              internalType: "struct AlkamariEscrow.Escrow",
+              components: [
+                {
+                  name: "maker",
+                  type: "address",
+                  internalType: "address payable",
+                },
+                {
+                  name: "taker",
+                  type: "address",
+                  internalType: "address payable",
+                },
+                {
+                  name: "maker_premium",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "taker_premium",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "value",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "takerfee",
+                  type: "uint16",
+                  internalType: "uint16",
+                },
+                {
+                  name: "makerfee",
+                  type: "uint16",
+                  internalType: "uint16",
+                },
+                {
+                  name: "currency",
+                  type: "address",
+                  internalType: "contract IERC20",
+                },
+                {
+                  name: "status",
+                  type: "uint8",
+                  internalType: "enum AlkamariEscrow.EscrowStatus",
+                },
+                {
+                  name: "created",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+              ],
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "EscrowMarkAsPaidOwner",
+          inputs: [
+            {
+              name: "orderId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "escrow",
+              type: "tuple",
+              indexed: false,
+              internalType: "struct AlkamariEscrow.Escrow",
+              components: [
+                {
+                  name: "maker",
+                  type: "address",
+                  internalType: "address payable",
+                },
+                {
+                  name: "taker",
+                  type: "address",
+                  internalType: "address payable",
+                },
+                {
+                  name: "maker_premium",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "taker_premium",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "value",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "takerfee",
+                  type: "uint16",
+                  internalType: "uint16",
+                },
+                {
+                  name: "makerfee",
+                  type: "uint16",
+                  internalType: "uint16",
+                },
+                {
+                  name: "currency",
+                  type: "address",
+                  internalType: "contract IERC20",
+                },
+                {
+                  name: "status",
+                  type: "uint8",
+                  internalType: "enum AlkamariEscrow.EscrowStatus",
+                },
+                {
+                  name: "created",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+              ],
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "EscrowRefundMaker",
+          inputs: [
+            {
+              name: "orderId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "escrow",
+              type: "tuple",
+              indexed: false,
+              internalType: "struct AlkamariEscrow.Escrow",
+              components: [
+                {
+                  name: "maker",
+                  type: "address",
+                  internalType: "address payable",
+                },
+                {
+                  name: "taker",
+                  type: "address",
+                  internalType: "address payable",
+                },
+                {
+                  name: "maker_premium",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "taker_premium",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "value",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "takerfee",
+                  type: "uint16",
+                  internalType: "uint16",
+                },
+                {
+                  name: "makerfee",
+                  type: "uint16",
+                  internalType: "uint16",
+                },
+                {
+                  name: "currency",
+                  type: "address",
+                  internalType: "contract IERC20",
+                },
+                {
+                  name: "status",
+                  type: "uint8",
+                  internalType: "enum AlkamariEscrow.EscrowStatus",
+                },
+                {
+                  name: "created",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+              ],
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "EscrowRefundMakerNativeCoin",
+          inputs: [
+            {
+              name: "orderId",
+              type: "uint256",
+              indexed: true,
+              internalType: "uint256",
+            },
+            {
+              name: "escrow",
+              type: "tuple",
+              indexed: false,
+              internalType: "struct AlkamariEscrow.Escrow",
+              components: [
+                {
+                  name: "maker",
+                  type: "address",
+                  internalType: "address payable",
+                },
+                {
+                  name: "taker",
+                  type: "address",
+                  internalType: "address payable",
+                },
+                {
+                  name: "maker_premium",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "taker_premium",
+                  type: "bool",
+                  internalType: "bool",
+                },
+                {
+                  name: "value",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+                {
+                  name: "takerfee",
+                  type: "uint16",
+                  internalType: "uint16",
+                },
+                {
+                  name: "makerfee",
+                  type: "uint16",
+                  internalType: "uint16",
+                },
+                {
+                  name: "currency",
+                  type: "address",
+                  internalType: "contract IERC20",
+                },
+                {
+                  name: "status",
+                  type: "uint8",
+                  internalType: "enum AlkamariEscrow.EscrowStatus",
+                },
+                {
+                  name: "created",
+                  type: "uint256",
+                  internalType: "uint256",
+                },
+              ],
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "OwnershipTransferred",
+          inputs: [
+            {
+              name: "previousOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "newOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "addStablesAddressesEvent",
+          inputs: [
+            {
+              name: "addressStable",
+              type: "address",
+              indexed: false,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "delStablesAddressesEvent",
+          inputs: [
+            {
+              name: "addressStable",
+              type: "address",
+              indexed: false,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "setFeeMakerEvent",
+          inputs: [
+            {
+              name: "feeMaker",
+              type: "uint16",
+              indexed: false,
+              internalType: "uint16",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "setFeeTakerEvent",
+          inputs: [
+            {
+              name: "feeMaker",
+              type: "uint16",
+              indexed: false,
+              internalType: "uint16",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "setTimeProcessEvent",
+          inputs: [
+            {
+              name: "timeProcess",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {
+        owner: "contracts/Ownable.sol",
+        renounceOwnership: "contracts/Ownable.sol",
+        transferOwnership: "contracts/Ownable.sol",
+      },
+    },
+    USDT: {
+      address: "0xcfdd87b2e443bec53c8e0897d628feb952c738a7",
+      abi: [
+        {
+          type: "constructor",
+          inputs: [
+            {
+              name: "name",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "symbol",
+              type: "string",
+              internalType: "string",
+            },
+            {
+              name: "decimalsValue",
+              type: "uint8",
+              internalType: "uint8",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "allowance",
+          inputs: [
+            {
+              name: "owner",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "spender",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "approve",
+          inputs: [
+            {
+              name: "spender",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "balanceOf",
+          inputs: [
+            {
+              name: "account",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "burn",
+          inputs: [
+            {
+              name: "amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "burnFrom",
+          inputs: [
+            {
+              name: "account",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "decimals",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint8",
+              internalType: "uint8",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "mint",
+          inputs: [
+            {
+              name: "to",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "name",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "owner",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "renounceOwnership",
+          inputs: [],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "symbol",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "string",
+              internalType: "string",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "totalSupply",
+          inputs: [],
+          outputs: [
+            {
+              name: "",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          stateMutability: "view",
+        },
+        {
+          type: "function",
+          name: "transfer",
+          inputs: [
+            {
+              name: "to",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "transferFrom",
+          inputs: [
+            {
+              name: "from",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "to",
+              type: "address",
+              internalType: "address",
+            },
+            {
+              name: "amount",
+              type: "uint256",
+              internalType: "uint256",
+            },
+          ],
+          outputs: [
+            {
+              name: "",
+              type: "bool",
+              internalType: "bool",
+            },
+          ],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "function",
+          name: "transferOwnership",
+          inputs: [
+            {
+              name: "newOwner",
+              type: "address",
+              internalType: "address",
+            },
+          ],
+          outputs: [],
+          stateMutability: "nonpayable",
+        },
+        {
+          type: "event",
+          name: "Approval",
+          inputs: [
+            {
+              name: "owner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "spender",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "value",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "OwnershipTransferred",
+          inputs: [
+            {
+              name: "previousOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "newOwner",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+          ],
+          anonymous: false,
+        },
+        {
+          type: "event",
+          name: "Transfer",
+          inputs: [
+            {
+              name: "from",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "to",
+              type: "address",
+              indexed: true,
+              internalType: "address",
+            },
+            {
+              name: "value",
+              type: "uint256",
+              indexed: false,
+              internalType: "uint256",
+            },
+          ],
+          anonymous: false,
+        },
+      ],
+      inheritedFunctions: {
+        allowance: "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        approve: "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        balanceOf: "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        decimals: "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        name: "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        symbol: "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        totalSupply: "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        transfer: "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        transferFrom: "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        owner: "contracts/Ownable.sol",
+        renounceOwnership: "contracts/Ownable.sol",
+        transferOwnership: "contracts/Ownable.sol",
+      },
+    },
+  },
+} as const;
 
 export default deployedContracts satisfies GenericContractsDeclaration;

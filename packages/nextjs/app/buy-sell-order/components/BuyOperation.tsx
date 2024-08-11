@@ -15,17 +15,17 @@ const BuyOperation = (props: IProps) => {
     case OrderStatus.Initialized: {
       return (
         <>
-          <p>Waiting for Seller to lock the cryptos</p>
+          <p>Esperando que el Vendedor ponga los fondos en custodia.</p>
         </>
       );
     }
     case OrderStatus.InProgress: {
       return (
         <>
-          <p>Pay the ammount required for the transaction and click confirm button</p>
+          <p>Paga el monto indicado en Bolivianos y luego haz click en Marcar pagado</p>
           <>
             <Button color="primary" onClick={() => ConfirmPay()}>
-              Confirm
+              Marcar pagado
             </Button>
           </>
         </>
@@ -34,14 +34,14 @@ const BuyOperation = (props: IProps) => {
     case OrderStatus.Confirmation: {
       return (
         <>
-          <p>Waiting For Seller to Confirm the Pay</p>
+          <p>Esperando a que el Vendedor confirme la recepcion del pago</p>
         </>
       );
     }
     case OrderStatus.Completed: {
       return (
         <>
-          <p>Your Transcation completed successfully</p>
+          <p>Tu transaccion termino exitosamente</p>
         </>
       );
     }

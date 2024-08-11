@@ -18,9 +18,9 @@ const SellOperation = (props: IProps) => {
     case OrderStatus.Initialized: {
       return (
         <>
-          <p>Click Lock Button to lock the crypto amount</p>
+          <p>Presiona Custodiar para custodiar los fondos</p>
           <Button color="primary" onClick={() => Lock()}>
-            Lock
+            Custodiar
           </Button>
         </>
       );
@@ -28,16 +28,19 @@ const SellOperation = (props: IProps) => {
     case OrderStatus.InProgress: {
       return (
         <>
-          <p>Wait For Buyer to complete Bank Transaction</p>
+          <p>Espera a que el Comprador complete el pago en Bolivianos</p>
         </>
       );
     }
     case OrderStatus.Confirmation: {
       return (
         <>
-          <p>Confirm you Received the expected amount of BOBs</p>
+          <p>
+            El vendedor marco la orden como pagada. Verifica que recibiste el monto en Bolivianos. Si todo esta bien
+            libera los fondos
+          </p>
           <Button color="primary" onClick={() => Confirm()}>
-            Confirm
+            Liberar
           </Button>
         </>
       );
@@ -45,7 +48,7 @@ const SellOperation = (props: IProps) => {
     case OrderStatus.Completed: {
       return (
         <>
-          <p>Your Transcation completed successfully</p>
+          <p>Tu transaccion termino exitosamente</p>
         </>
       );
     }

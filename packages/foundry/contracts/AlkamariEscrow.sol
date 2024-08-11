@@ -1,12 +1,20 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.19;
+pragma solidity ^0.8.19;
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.9.2/contracts/token/ERC20/IERC20.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.9.2/contracts/utils/Address.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.9.2/contracts/token/ERC20/utils/SafeERC20.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.9.2/contracts/security/ReentrancyGuard.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.9.2/contracts/utils/Context.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.9.2/contracts/access/Ownable.sol";
+// import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+// import "@openzeppelin/contracts/utils/Address.sol";
+// import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+// import "./ReentrancyGuard.sol";
+// import "@openzeppelin/contracts/utils/Context.sol";
+// import "@openzeppelin/contracts/access/Ownable.sol";
+
+import "./IERC20.sol";
+import "./Address.sol";
+import "./SafeERC20.sol";
+import "./ReentrancyGuard.sol";
+import "./Context.sol";
+import "./Ownable.sol";
+
 
 contract AlkamariEscrow is ReentrancyGuard, Ownable {
     // 0.1 is 100 because it is multiplied by a thousand => 0.1 X 1000 = 100
