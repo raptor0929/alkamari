@@ -5,19 +5,17 @@ import BuyOperation from "../components/BuyOperation";
 import SellOperation from "../components/SellOperations";
 import { useWallets } from "@privy-io/react-auth";
 import OrderChat from "~~/components/OrderChat";
+import { GetAnnounceDetails } from "~~/repository/AnnouncementRepository";
+import { GetOrderDetails } from "~~/repository/OrderRepository";
 import { Announcement, Order, OrderType } from "~~/types/types";
 
 const BuySellOrder = ({ params }: { params: { id: string } }) => {
   const { id } = params;
-  console.log(id);
-  const [order] = useState<Order>();
-  const [anounce] = useState<Announcement>();
+  const [order, setOrder] = useState<Order>();
+  const [anounce, setAnounce] = useState<Announcement>();
   const { wallets } = useWallets();
 
   const myWalletAddress = wallets[0]?.address;
-  const counterWalletAddress = (
-    order?.fromWalletAddress == myWalletAddress ? order?.toWalletAddress : order?.fromWalletAddress
-  ) as string;
 
   const IsSellerPerspective = () => {
     if (order?.fromWalletAddress == myWalletAddress && anounce?.type == OrderType.Sell) return true;
@@ -30,27 +28,29 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
     //   id: "asdasda",
     //   type: OrderType.Buy,
     //   fiatUnitPice: 10.3,
-    //   walletAddress: "test2",
+    //   walletAddress: myWalletAddress,
     //   creationDate: new Date().toString(),
     // };
+
+    // console.log()
     // const currentOrder: Order = {
     //   id: "asdasdasda",
     //   anounceId: "asdasda",
-    //   fromWalletAddress: "test2",
-    //   toWalletAddress: "test1",
+    //   toWalletAddress: myWalletAddress,
+    //   fromWalletAddress: "0x373001DEe2C98653aaFaA1B87Bb39BD96a768579",
     //   orderSize: 10.2,
     //   Fee: 1,
     //   status: OrderStatus?.InProgress,
     // };
-    // const currentOrder = await GetOrderDetails(id);
-    // const currentAnonunce = await GetAnnounceDetails(currentOrder.anounceId);
-    // setAnounce(currentAnonunce);
-    // setOrder(currentOrder);
+    const currentOrder = await GetOrderDetails(id);
+    const currentAnonunce = await GetAnnounceDetails(currentOrder.anounceId);
+    setAnounce(currentAnonunce);
+    setOrder(currentOrder);
   };
 
   useEffect(() => {
     LoadOrder();
-  }, [order]);
+  }, [order, anounce, setOrder, setAnounce]);
 
   return (
     order &&
@@ -84,7 +84,7 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
           </div>
         </div>
         <div style={{ maxHeight: "400px" }}>
-          <OrderChat from={myWalletAddress} to={counterWalletAddress} />
+          <OrderChat from={myWalletAddress} members={[order.fromWalletAddress, order.toWalletAddress]} />
         </div>
       </div>
     )
