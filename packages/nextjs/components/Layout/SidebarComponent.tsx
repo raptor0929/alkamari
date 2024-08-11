@@ -19,7 +19,7 @@ const SidebarComponent = () => {
   const menuItems = [
     { label: "Marketplace", icon: BsCardChecklist, href: "/marketplace?type=buy" },
     { label: "Mis anuncios", icon: BsCardChecklist, href: "/my-ads" },
-    { label: "Transacciones", icon: AiOutlineTransaction, href: "/transacciones" },
+    { label: "Transacciones", icon: AiOutlineTransaction, href: "/my-orders" },
     { label: "Soporte por telegram", icon: BiSupport, href: "/soporte" },
     { label: "FAQs", icon: AiOutlineQuestionCircle, href: "/faqs" },
   ];

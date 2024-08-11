@@ -44,9 +44,9 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
     //   status: OrderStatus?.InProgress,
     // };
     const currentOrder = await GetOrderDetails(id);
-    const currentAnonunce = await GetAnnounceDetails(currentOrder?.anounceId);
-    setAnounce(currentAnonunce);
     setOrder(currentOrder);
+    const currentAnonunce = await GetAnnounceDetails(currentOrder.anounceId);
+    setAnounce(currentAnonunce);
   };
 
   const handleStatus = (value: string) => {
@@ -55,7 +55,7 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
 
   useEffect(() => {
     LoadOrder();
-  }, []);
+  }, [order, anounce, setOrder, setAnounce, id]);
 
   return (
     order &&

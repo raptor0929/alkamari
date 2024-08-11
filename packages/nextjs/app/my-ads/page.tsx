@@ -3,14 +3,13 @@
 import React from "react";
 import AdDetails from "./components/AdDetails";
 import { Button, Link, Pagination, Table, TableBody, TableColumn, TableHeader } from "@nextui-org/react";
-import { useWallets } from "@privy-io/react-auth";
+import { useBiconomy } from "~~/context/BiconomyContext";
 import { GetAllAnnouncements } from "~~/repository/AnnouncementRepository";
 import { Announcement, OrderType } from "~~/types/types";
 
 const MyAdsComponent = () => {
   const rowsPerPage = 10;
-  const { wallets } = useWallets();
-  const myWalletAddress = wallets[0]?.address;
+  const { smartAccountAddress } = useBiconomy();
   const [page, setPage] = React.useState(1);
   const [anouncemets, setAnouncemets] = React.useState<Announcement[]>([]);
   const [operationType, setOperationType] = React.useState(OrderType.Buy);
@@ -18,8 +17,8 @@ const MyAdsComponent = () => {
 
   const LoadAnouncements = async () => {
     const myAnouncemets = await GetAllAnnouncements();
-
-    const filterdData = myAnouncemets.filter(x => x.type === operationType && x.walletAddress == myWalletAddress);
+    console.log(myAnouncemets);
+    const filterdData = myAnouncemets.filter(x => x.type === operationType && x.walletAddress === smartAccountAddress);
     setAnouncemets(filterdData);
     setPages(Math.ceil(filterdData.length / rowsPerPage));
     setPage(1);
@@ -34,7 +33,7 @@ const MyAdsComponent = () => {
 
   React.useEffect(() => {
     LoadAnouncements();
-  }, [operationType]);
+  }, [operationType, page, setAnouncemets, operationType, setPage, setPages]);
 
   return (
     <>

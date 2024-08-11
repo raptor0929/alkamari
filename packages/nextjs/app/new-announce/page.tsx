@@ -3,22 +3,22 @@
 import React, { FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { Button, Input, Select, SelectItem } from "@nextui-org/react";
-import { useWallets } from "@privy-io/react-auth";
+import { useBiconomy } from "~~/context/BiconomyContext";
 import { AddAnnouncement } from "~~/repository/AnnouncementRepository";
 import { Announcement, CryptoCurrency, FiatCurrency, OrderType } from "~~/types/types";
 
 const NewAnouncement = () => {
   const router = useRouter();
   const [operation, setOperation] = React.useState(OrderType.Buy);
-  const { wallets } = useWallets();
-  const myWalletAddress = wallets[0]?.address;
+  const { smartAccountAddress } = useBiconomy();
+
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
     const anounce: Announcement = {
       type: formData.get("type") as OrderType,
-      walletAddress: myWalletAddress,
+      walletAddress: smartAccountAddress as string,
       cryptoCurrency: CryptoCurrency.USDT,
       cryptoAmount: formData.get("cryptoAmount") as unknown as number,
       fiatCurrency: FiatCurrency.BOB,
@@ -30,6 +30,8 @@ const NewAnouncement = () => {
     await AddAnnouncement(anounce);
     router.back();
   };
+
+  if (!smartAccountAddress) return <></>;
 
   return (
     <form onSubmit={onSubmit}>
