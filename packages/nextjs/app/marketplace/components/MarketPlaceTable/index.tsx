@@ -4,7 +4,6 @@ import { AnnouncementsData } from "../../types/types";
 import InformationCell from "./InformationCell";
 import PaginationTable from "./PaginationTable";
 import { Button, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/react";
-import { FaCheckCircle } from "react-icons/fa";
 
 const MarketPlaceTable = ({ ordersData }: { ordersData: AnnouncementsData[] }) => {
   const router = useRouter();
@@ -38,30 +37,33 @@ const MarketPlaceTable = ({ ordersData }: { ordersData: AnnouncementsData[] }) =
       removeWrapper={true}
     >
       <TableHeader>
-        <TableColumn key="announcement" className="w-2/6">
-          Anunciante
+        <TableColumn key="id" className="w-1/6">
+          ID
+        </TableColumn>
+        <TableColumn key="date" className="w-1/6">
+          Fecha
         </TableColumn>
         <TableColumn key="price" className="w-1/6">
           Precio
         </TableColumn>
         <TableColumn key="payment" className="w-1/6">
-          Pago
+          Disponible
         </TableColumn>
         <TableColumn key="limits" className="w-1/6">
-          Limites
+          Pago
         </TableColumn>
-        <TableColumn key="available" className="w-1/6">
-          Disponibles
-        </TableColumn>
+        {/* <TableColumn key="available" className="w-1/6">
+          Activo
+        </TableColumn> */}
         <TableColumn key="actions" className="w-auto">
           {""}
         </TableColumn>
       </TableHeader>
       <TableBody items={items}>
         {items?.map(item => {
-          if (expandedKey === item.advertiser.name) {
+          if (expandedKey === item?.id) {
             return (
-              <TableRow key={item.announcementId}>
+              <TableRow key={item?.id}>
                 <TableCell colSpan={6} className="bg-bg-200">
                   <InformationCell item={item} handleExpand={handleExpand} handleBuySell={handleBuySell} />
                 </TableCell>
@@ -70,50 +72,46 @@ const MarketPlaceTable = ({ ordersData }: { ordersData: AnnouncementsData[] }) =
                 <TableCell className="hidden">{""}</TableCell>
                 <TableCell className="hidden">{""}</TableCell>
                 <TableCell className="hidden">{""}</TableCell>
+                {/* <TableCell className="hidden">{""}</TableCell> */}
               </TableRow>
             );
           } else {
             return (
-              <TableRow key={item.announcementId}>
+              <TableRow key={item?.id}>
+                <TableCell>{item?.id}</TableCell>
+                <TableCell className="flex gap-4 items-center ">
+                  <span className="text-sm">{/* {item?.advertiser?.transactions} {item?.creationDate} */}</span>
+                </TableCell>
                 <TableCell>
+                  {item?.fiatUnitPice} {item?.fiatCurrency}
+                </TableCell>
+                <TableCell>
+                  {/* <ul>{item?.payment?.methods?.map((method, index) => <li key={index}>{method}</li>)}</ul> */}
+                  <span>
+                    {item?.cryptoAmount} {item?.cryptoCurrency}
+                  </span>
+                </TableCell>
+                <TableCell>
+                  <span>Pago por QR</span>
+                  {/* <ul>
+                    <li>Max :{item?.limits?.max_limit}</li>
+                    <li>min :{item?.limits?.min_limit}</li>
+                  </ul> */}
+                </TableCell>
+                {/* <TableCell>
                   <ul>
-                    <li className="flex gap-2 items-center">
-                      <span className="text-lg flex gap-2 items-center">
-                        {item.advertiser.name}
-                        {item.advertiser.verification && <FaCheckCircle className="text-button-bg" />}
-                      </span>
-                    </li>
-                    <li>
-                      <span className="text-sm">{item.advertiser.transactions}Transacciones</span>
-                    </li>
+                    <li> Cantidad: {item?.available?.amount} </li>
+                    <li> Moneda: {item?.available?.currency} </li>
+                    <li> Red: {item?.available?.network} </li>
                   </ul>
-                </TableCell>
-                <TableCell>
-                  {item.price.value} {item.price.currency}
-                </TableCell>
-                <TableCell>
-                  <ul>{item?.payment?.methods?.map((method, index) => <li key={index}>{method}</li>)}</ul>
-                </TableCell>
-                <TableCell>
-                  <ul>
-                    <li>Max :{item.limits.max_limit}</li>
-                    <li>min :{item.limits.min_limit}</li>
-                  </ul>
-                </TableCell>
-                <TableCell>
-                  <ul>
-                    <li> Cantidad: {item.available.amount} </li>
-                    <li> Moneda: {item.available.currency} </li>
-                    <li> Red: {item.available.network} </li>
-                  </ul>
-                </TableCell>
+                </TableCell> */}
                 <TableCell>
                   <Button
-                    className={`${item.action.type === "buy" ? "bg-success-button" : "bg-error"}`}
-                    onPress={() => handleExpand(item.advertiser.name)}
+                    className={`${item?.type === "Buy" ? "bg-success-button" : "bg-error"}`}
+                    onPress={() => handleExpand(item?.id)}
                     key="action"
                   >
-                    <span className="capitalize">{item.action.type === "buy" ? "Comprar" : "Vender"}</span>
+                    <span className="capitalize">{item?.type === "Buy" ? "Comprar" : "Vender"}</span>
                     USD
                   </Button>
                 </TableCell>

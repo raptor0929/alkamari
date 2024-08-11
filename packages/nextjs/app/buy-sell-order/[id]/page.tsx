@@ -39,7 +39,6 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
     //   creationDate: new Date().toString(),
     // };
 
-    // console.log()
     // const currentOrder: Order = {
     //   id: "asdasdasda",
     //   anounceId: "asdasda",

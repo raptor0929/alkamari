@@ -17,42 +17,42 @@ const InformationCell = ({
         <div className="flex flex-col py-4 px-10">
           <div className="flex justify-between">
             <span>
-              <strong>Precio:</strong> {item.price.value} {item.price.currency}
+              <strong>Precio:</strong> {item?.fiatUnitPice} {item?.fiatCurrency}
             </span>
             <span>
-              <strong>Disponibles:</strong> {item.available.amount} {item.available.currency}
+              <strong>Disponibles:</strong> {item?.cryptoAmount} {item?.cryptoCurrency}
             </span>
           </div>
           <div className="flex justify-between">
             <span>
-              <strong>Tiempo límite:</strong> 45 Min
+              <strong>Tiempo límite:</strong> 15 Min
             </span>
             <span>
-              <strong>Comisión:</strong> 0 USDT (1%)
+              <strong>Comisión:</strong> (1%)
             </span>
           </div>
-          <div className="flex justify-between">
+          {/* <div className="flex justify-between">
             <span>
-              <strong>Mín:</strong> {item.limits.min_limit} {item.price.currency}
+              <strong>Mín:</strong> {item?.limits?.min_limit} {item?.price?.currency}
             </span>
             <span>
-              <strong>Máx:</strong> {item.limits.max_limit} {item.price.currency}
+              <strong>Máx:</strong> {item?.limits?.max_limit} {item?.price?.currency}
             </span>
-          </div>
+          </div> */}
           <div className="mt-2">
             <strong>Términos y Condiciones:</strong>
             <div className="flex justify-between">
-              <p className="text-sm">{item?.condition}</p>
+              <p className="text-sm">{item?.id}</p>
               <div className="flex gap-2">
-                <Button onPress={() => handleExpand(item.announcementId)}>Cancelar</Button>
+                <Button onPress={() => handleExpand(item.id)}>Cancelar</Button>
                 <Button
-                  className={`${item.action.type === "buy" ? "bg-success-button" : "bg-error"}`}
+                  className={`${item?.type === "Buy" ? "bg-success-button" : "bg-error"}`}
                   onPress={() => {
                     // handleExpand(item.announcementId);
-                    handleBuySell(item.announcementId);
+                    handleBuySell(item?.id);
                   }}
                 >
-                  <span className="capitalize">{item.action.type === "buy" ? "Comprar" : "Vender"}</span>
+                  <span className="capitalize">{item?.type === "Buy" ? "Comprar" : "Vender"}</span>
                   USD
                 </Button>
               </div>

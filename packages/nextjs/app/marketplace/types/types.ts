@@ -32,11 +32,11 @@ export type Action = {
 
 export type AnnouncementsData = {
   announcementId: string;
-  advertiser: Advertiser;
-  price: Price;
-  payment: Payment;
-  limits: Limits;
-  available: Available;
-  action: Action;
-  condition?: string;
+  creationDate: string;
+  fiatUnitPice: string;
+  fiatCurrency: string;
+  cryptoAmount: string;
+  cryptoCurrency: string;
+  id: string;
+  type: "Buy" | "Sell";
 };

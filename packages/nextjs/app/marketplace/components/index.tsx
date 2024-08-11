@@ -1,27 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+// import { AnnouncementsData } from "../types/types";
 import MarketPlaceTable from "./MarketPlaceTable";
-import { mockDataAnnouncementsBuy, mockDataAnnouncementsSell } from "./MarketPlaceTable/data";
+// import { mockDataAnnouncementsBuy, mockDataAnnouncementsSell } from "./MarketPlaceTable/data";
 import { Card, CardBody, Tab, Tabs } from "@nextui-org/react";
 import { GetAllAnnouncements } from "~~/repository/AnnouncementRepository";
+
+// import { Announcement } from "~~/types/types";
 
 interface IMarketPlaceProps {
   type: "buy" | "sell";
 }
 
 const MarketPlace = ({ type }: IMarketPlaceProps) => {
-  const [ordersData, setOrdersData] = useState(mockDataAnnouncementsBuy);
-
+  const [ordersData, setOrdersData] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
-    if (type === "buy") {
-      setOrdersData(mockDataAnnouncementsBuy);
-    } else {
-      setOrdersData(mockDataAnnouncementsSell);
-    }
+    const getData = async () => {
+      const allAnnouncements = await GetAllAnnouncements();
+      const dataAnnouncementsBuy: any = allAnnouncements.filter(announcement => announcement.type === "Buy");
+      const dataAnnouncementsSell: any = allAnnouncements.filter(announcement => announcement.type === "Sell");
+
+      if (type === "buy") {
+        setOrdersData(dataAnnouncementsBuy);
+      } else {
+        setOrdersData(dataAnnouncementsSell);
+      }
+    };
+
+    getData();
   }, [type]);
 
+  console.log({ ordersData });
   const handleTabChange = (newType: "buy" | "sell") => {
     router.push(`/marketplace?type=${newType}`);
   };

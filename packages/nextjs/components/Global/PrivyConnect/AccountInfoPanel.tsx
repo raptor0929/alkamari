@@ -11,7 +11,6 @@ export function AccountInfoPanel() {
   const networkColor = useNetworkColor();
   const { smartAccountAddress: address } = useBiconomy();
   const { targetNetwork } = useTargetNetwork();
-  console.log("address", address);
   const { logout } = usePrivy();
   const handleDisconnectWallet = useCallback(() => {
     logout();
