@@ -39,6 +39,7 @@ export type Order = {
   Fee: number;
   status: OrderStatus;
   correlationId: number;
+  documentId: string;
 };
 
 export type User = {

@@ -2,6 +2,7 @@ import { PaymasterMode } from "@biconomy/account";
 import { Button } from "@nextui-org/react";
 import { encodeFunctionData, parseAbi } from "viem";
 import { useBiconomy } from "~~/context/BiconomyContext";
+import { UpdateOrderStatus } from "~~/repository/OrderRepository";
 import { OrderStatus } from "~~/types/types";
 
 interface IProps {
@@ -11,6 +12,7 @@ interface IProps {
   takerAddress: string;
   value: number;
   handleStatus: (x: string) => void;
+  documentId: string;
 }
 
 const withSponsorship = {
@@ -23,7 +25,7 @@ const currency = USDT_CONTRACT_ADDRESS;
 
 const SellOperation = (props: IProps) => {
   console.log({ sellerOperationProps: props });
-  const { status, orderId, takerAddress, value, handleStatus } = props;
+  const { status, orderId, takerAddress, value, handleStatus, documentId } = props;
   const { smartAccount } = useBiconomy();
 
   const executeTxn = async (cAddr: string, data: any) => {
@@ -63,6 +65,8 @@ const SellOperation = (props: IProps) => {
     });
     console.log("CRYPTOS_IN_CUSTODY");
     handleStatus(OrderStatus.InProgress);
+    await UpdateOrderStatus(documentId, OrderStatus.InProgress);
+    window.location.reload();
   };
   const Confirm = async () => {
     console.log("Release escrow:", { orderId });
@@ -74,6 +78,8 @@ const SellOperation = (props: IProps) => {
     });
     console.log("COMPLETED");
     handleStatus(OrderStatus.Completed);
+    await UpdateOrderStatus(documentId, OrderStatus.Completed);
+    window.location.reload();
   };
   switch (status) {
     case OrderStatus.Initialized: {

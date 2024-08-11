@@ -2,6 +2,7 @@ import { PaymasterMode } from "@biconomy/account";
 import { Button } from "@nextui-org/react";
 import { encodeFunctionData, parseAbi } from "viem";
 import { useBiconomy } from "~~/context/BiconomyContext";
+import { UpdateOrderStatus } from "~~/repository/OrderRepository";
 import { OrderStatus } from "~~/types/types";
 
 interface IProps {
@@ -11,6 +12,7 @@ interface IProps {
   takerAddress: string;
   value: number;
   handleStatus: (x: string) => void;
+  documentId: string;
 }
 
 const withSponsorship = {
@@ -21,7 +23,7 @@ const ALKAMARI_ESCROW_CONTRACT_ADDRESS = "0x65E277875eB98136fD54003ea668630fe89e
 
 const BuyOperation = (props: IProps) => {
   console.log({ buyOperationProps: props });
-  const { status, orderId, handleStatus } = props;
+  const { status, orderId, handleStatus, documentId } = props;
   const { smartAccount } = useBiconomy();
 
   const executeTxn = async (cAddr: string, data: any) => {
@@ -53,6 +55,8 @@ const BuyOperation = (props: IProps) => {
     });
     console.log("FIATCOIN_TRANSFERED");
     handleStatus(OrderStatus.Confirmation);
+    await UpdateOrderStatus(documentId, OrderStatus.Confirmation);
+    window.location.reload();
   };
   switch (status) {
     case OrderStatus.Initialized: {

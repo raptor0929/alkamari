@@ -44,7 +44,7 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
     //   status: OrderStatus?.InProgress,
     // };
     const currentOrder = await GetOrderDetails(id);
-    const currentAnonunce = await GetAnnounceDetails(currentOrder.anounceId);
+    const currentAnonunce = await GetAnnounceDetails(currentOrder?.anounceId);
     setAnounce(currentAnonunce);
     setOrder(currentOrder);
   };
@@ -83,6 +83,7 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
           <div className="col-span-4 text-center font-bold text-xl">
             {!IsSellerPerspective() ? (
               <SellOperation
+                documentId={order.id}
                 orderId={order.correlationId}
                 status={order.status}
                 makerAddress={order.fromWalletAddress}
@@ -92,6 +93,7 @@ const BuySellOrder = ({ params }: { params: { id: string } }) => {
               />
             ) : (
               <BuyOperation
+                documentId={order.id}
                 orderId={order.correlationId}
                 status={order.status}
                 makerAddress={order.fromWalletAddress}
