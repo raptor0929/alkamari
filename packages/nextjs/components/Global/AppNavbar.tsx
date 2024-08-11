@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect } from "react";
 import SidebarComponent from "../Layout/SidebarComponent";
 // import { SwitchTheme } from "../SwitchTheme";
