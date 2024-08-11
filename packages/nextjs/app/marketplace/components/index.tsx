@@ -1,15 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import MarketPlaceTable from "./MarketPlaceTable";
+import { mockDataOrdersBuy, mockDataOrdersSell } from "./MarketPlaceTable/data";
+import { Card, CardBody, Tab, Tabs } from "@nextui-org/react";
 
 interface IMarketPlaceProps {
   type: "buy" | "sell";
 }
 
 const MarketPlace = ({ type }: IMarketPlaceProps) => {
-  console.log(type);
+  const [ordersData, setOrdersData] = useState(mockDataOrdersBuy);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (type === "buy") {
+      setOrdersData(mockDataOrdersBuy);
+    } else {
+      setOrdersData(mockDataOrdersSell);
+    }
+  }, [type]);
+
+  const handleTabChange = (newType: "buy" | "sell") => {
+    router.push(`/marketplace?type=${newType}`);
+  };
+
   return (
     <div className="h-full">
-      <MarketPlaceTable />
+      <div className="flex h-full flex-col m-4">
+        <Tabs
+          aria-label="Options"
+          classNames={{
+            cursor: `${type === "buy" ? "bg-success" : "bg-error"}`,
+          }}
+          onSelectionChange={key => handleTabChange(key as "buy" | "sell")}
+        >
+          <Tab key="buy" title="Buy" className="h-full">
+            <Card>
+              <CardBody className="p-0 m-0">
+                <MarketPlaceTable ordersData={ordersData} />
+              </CardBody>
+            </Card>
+          </Tab>
+          <Tab key="sell" title="Sell">
+            <Card>
+              <CardBody className="p-0 m-0">
+                <MarketPlaceTable ordersData={ordersData} />
+              </CardBody>
+            </Card>
+          </Tab>
+        </Tabs>
+      </div>
     </div>
   );
 };
